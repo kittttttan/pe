@@ -2,15 +2,13 @@
 
 #include <stdio.h>
 
+#define SUM_X2(n) ((n) * ((n) + 1))
+
 void pe1(unsigned long n) {
-  unsigned long n3, n5, n15, sum = 0;
+  unsigned long sum = 0;
 
   if (n > 2) {
-    n3 = (n - 1) / 3;
-    n5 = (n - 1) / 5;
-    n15 = (n - 1) / 15;
-    sum = (3 * n3 * (n3 + 1) + 5 * n5 * (n5 + 1)
-        - 15 * n15 * (n15 + 1)) >> 1;
+    sum = (3 * SUM_X2(n / 3) + 5 * SUM_X2(n / 5) - 15 * SUM_X2(n / 15)) >> 1;
   }
 
   printf("%lu below %lu\n", sum, n);
@@ -19,7 +17,7 @@ void pe1(unsigned long n) {
 void pe1_loop(unsigned long n) {
   unsigned long i, sum = 0;
   if (n > 2) {
-    for (i = 3; i < n; ++i) {
+    for (i = 3; i < n + 1; ++i) {
       if (i % 3 == 0 || i % 5 == 0) {
         sum += i;
       }

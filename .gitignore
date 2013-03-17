@@ -10,3 +10,7 @@ ipch/
 *.sdf
 *.suo
 *.user
+
+.metadata/
+.settings/
+*.class
