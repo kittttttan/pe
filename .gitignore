@@ -1,0 +1,12 @@
+*.exe
+*.o
+*.pyc
+*.log
+
+Debug/
+Release/
+ipch/
+*.opensdf
+*.sdf
+*.suo
+*.user
