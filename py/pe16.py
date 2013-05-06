@@ -3,11 +3,11 @@
 from sys import argv
 from pe import sod
 
-def pe16(n):
+def pe16(n=1000):
     """
     What is the sum of the digits of the number 2**1000?
     """
-    print("sum of the digits of 2**%d is %d" % (n, sod(2**n)))
+    return sod(2**n)
 
 def main():
     argc = len(argv)
@@ -19,8 +19,8 @@ def main():
             return
     else:
         n = 1000
-    
-    pe16(n)
+
+    print("sum of the digits of 2**%d is %d" % (n, pe16(n)))
 
 if __name__ == "__main__":
     main()

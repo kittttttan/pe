@@ -3,20 +3,20 @@
 from sys import argv
 from pe import count_divisors
 
-def pe12(sub):
+def pe12(sub=500):
     """
     What is the value of the first triangle number
     to have over five hundred divisors?
     """
     t = 1
     i = 2
-    while True:
+    while 1:
         c = count_divisors(t)
         if c >= sub:
             break
         t += i
         i += 1
-    print(t)
+    return(t)
 
 def main():
     argc = len(argv)
@@ -28,8 +28,8 @@ def main():
             return
     else:
         n = 500
-    
-    pe12(n)
+
+    print(pe12(n))
 
 if __name__ == "__main__":
     main()

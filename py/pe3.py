@@ -1,13 +1,13 @@
 #! /usr/bin/env python3
- 
+
 from sys import argv
 from pe import get_divisors
- 
-def pe3(n):
+
+def pe3(n=600851475143):
     """
     Find the largest prime factor of a composite number.
     """
-    print(get_divisors(n))
+    return get_divisors(n)
 
 def main():
     argc = len(argv)
@@ -19,8 +19,8 @@ def main():
             return
     else:
         n = 600851475143
-    
-    pe3(n)
+
+    print(pe3(n))
 
 if __name__ == "__main__":
     main()

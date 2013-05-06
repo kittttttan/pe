@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe10(n):
+def pe10(n=2000000):
     """
     Calculate the sum of all the primes below two million.
     """
@@ -13,7 +13,7 @@ def pe10(n):
         if s[i]:
             m = n // i - i
             s[i * i : n + 1 : i] = [False] * (m + 1)
-    print(sum(i for i in range(n + 1) if s[i]))
+    return(sum(i for i in range(n + 1) if s[i]))
 
 def main():
     argc = len(argv)
@@ -25,8 +25,8 @@ def main():
             return
     else:
         n = 2000000
-    
-    pe10(n)
+
+    print(pe10(n))
 
 if __name__ == "__main__":
     main()

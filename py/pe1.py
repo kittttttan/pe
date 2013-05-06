@@ -1,26 +1,26 @@
 #! /usr/bin/env python3
 
-from sys import argv
- 
-def pe1a(limit):
+def pe1a(limit=1000):
     """
     Add all the natural numbers below one thousand
     that are multiples of 3 or 5.
     """
-    print(sum([x for x in range(1, limit + 1) if not x % 3 or not x % 5]))
+    return sum([x for x in range(1, limit + 1) if not x % 3 or not x % 5])
 
-def pe1(n):
+def pe1(n=1000):
     sum = 0
-    
+
     if n > 2:
         n3 = n // 3
         n5 = n // 5
         n15 = n // 15
         sum = (3 * n3 * (n3 + 1) + 5 * n5 * (n5 + 1) - 15 * n15 * (n15 + 1)) >> 1
 
-    print(sum)
+    return sum
 
 def main():
+    from sys import argv
+    
     argc = len(argv)
     if argc > 1:
         try:
@@ -31,7 +31,7 @@ def main():
     else:
         n = 1000
 
-    pe1(n)
+    print(pe1(n))
 
 if __name__ == "__main__":
     main()

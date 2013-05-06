@@ -1,14 +1,13 @@
 #! /usr/bin/env python3
- 
+
 from sys import argv
 
-def pe5(n):
+def pe5(n=20):
     """
     What is the smallest number divisible by each of the numbers 1 to 20?
     """
     if n < 2:
-        print(1)
-        return
+        return 1
     p = 2
     m = [2]
     for x in range(3, n + 1):
@@ -18,7 +17,7 @@ def pe5(n):
         if x > 1:
             m.append(x)
             p *= x
-    print(p)
+    return p
 
 def main():
     argc = len(argv)
@@ -30,8 +29,8 @@ def main():
             return
     else:
         n = 20
-    
-    pe5(n)
+
+    print(pe5(n))
 
 if __name__ == "__main__":
     main()

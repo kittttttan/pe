@@ -1,19 +1,21 @@
 #! /usr/bin/env python3
 
 from sys import argv
-from pe import perm, fact
+from pe import perm
+from math import factorial
 
-def pe15(m, n):
+def pe15(m=20, n=20):
     """
     Starting in the top left corner in a 20 by 20 grid,
     how many routes are there to the bottom right corner?
     """
-    
-    #return fact(m + n) // (fact(m) * fact(n))
+
+    #return factorial(m + n) // (factorial(m) * factorial(n))
 
     p = perm(m + n, m)
-    f = fact(n)
-    print("%d / %d = %d" % (p, f, p // f))
+    f = factorial(n)
+    #print("%d / %d = %d" % (p, f, p // f))
+    return p // f
 
 def main():
     argc = len(argv)
@@ -33,8 +35,8 @@ def main():
             return
     else:
         n = 20
-    
-    pe15(m, n)
+
+    print(pe15(m, n))
 
 if __name__ == "__main__":
     main()

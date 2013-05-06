@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe18(fname):
+def pe18(fname="../res/pe18.txt"):
     """
     Find the maximum sum travelling from the top of the triangle to the base.
     """
@@ -17,17 +17,17 @@ def pe18(fname):
         for j in range(len(si)):
             si[j] = int(si[j]) + \
                     max(int(s[size - i][j]), int(s[size - i][j + 1]))
-    print(s[0][0])
+    return(s[0][0])
 
 def main():
     argc = len(argv)
     if argc > 1:
         fname = argv[1]
     else:
-        fname = "pe18.txt"
+        fname = "../res/pe18.txt"
 
     try:
-        pe18(fname)
+        print(pe18(fname))
     except FileNotFoundError:
         print("""file not found: %s
 

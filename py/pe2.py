@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe2(limit):
+def pe2(limit=4000000):
     """
     By considering the terms in the Fibonacci sequence
     whose values do not exceed four million,
@@ -13,7 +13,7 @@ def pe2(limit):
         a, b = b, a + b
         if not b & 1:
             s += b
-    print(s)
+    return s
 
 def main():
     argc = len(argv)
@@ -25,8 +25,8 @@ def main():
             return
     else:
         n = 4000000
-    
-    pe2(n)
+
+    print(pe2(n))
 
 if __name__ == "__main__":
     main()

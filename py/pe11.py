@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe11(fname, n):
+def pe11(fname="../res/pe11.txt", n=4):
     """
     What is the greatest product of four numbers
     on the same straight line in the 20 by 20 grid?
@@ -15,7 +15,7 @@ def pe11(fname, n):
     r = size - n
     for i in range(size):
         grid[i] = grid[i].split(' ')
-        print(len(grid[i]))
+        #print(len(grid[i]))
     for x in range(size):
         for y in range(size):
             ud = lr = d0 = d1 = 1
@@ -28,21 +28,21 @@ def pe11(fname, n):
             if m < lr: m = lr
             if m < d0: m = d0
             if m < d1: m = d1
-    print(m)
+    return(m)
 
 def main():
     argc = len(argv)
     if argc > 1:
         fname = argv[1]
     else:
-        fname = "pe11.txt"
+        fname = "../res/pe11.txt"
     if argc > 2:
         n = int(argv[2])
     else:
         n = 4
 
     try:
-        pe11(fname, n)
+        print(pe11(fname, n))
     except FileNotFoundError:
         print("""file not found: %s
 

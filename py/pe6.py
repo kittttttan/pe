@@ -2,16 +2,16 @@
 
 from sys import argv
 
-def pe6a(n):
+def pe6a(n=100):
     """
     What is the difference between the sum of the squares and
     the square of the sums?
     """
     s1 = sum([x for x in range(1, n + 1)])
     s2 = sum([x * x for x in range(1, n + 1)])
-    print(s1 * s1 - s2)
+    return(s1 * s1 - s2)
 
-def pe6(n):
+def pe6(n=100):
     """
     s1 = n*(n+1)/2
     s2 = n*(n+1)*(2*n+1)/6
@@ -21,7 +21,7 @@ def pe6(n):
         = n*(n+1)*(3*n*n - n - 2)/12
         = n*(n+1)*(n-1)*(3*n+2)/12
     """
-    print(n * (n + 1) * (n - 1) * (3 * n + 2) // 12)
+    return(n * (n + 1) * (n - 1) * (3 * n + 2) // 12)
 
 def main():
     argc = len(argv)
@@ -33,8 +33,8 @@ def main():
             return
     else:
         n = 100
-    
-    pe6(n)
+
+    print(pe6(n))
 
 if __name__ == "__main__":
     main()

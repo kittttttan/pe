@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe9(limit):
+def pe9(limit=1000):
     """
     Find the only Pythagorean triplet, {a, b, c}, for which a + b + c = 1000.
     """
@@ -12,9 +12,8 @@ def pe9(limit):
         for y in range(x, l2):
             z = limit - x - y
             if x * x + y * y == z * z:
-                print(x * y * z)
                 # list.append((x, y, z))
-                return
+                return(x * y * z)
     # return list
 
 def main():
@@ -27,8 +26,8 @@ def main():
             return
     else:
         n = 1000
-    
-    pe9(n)
+
+    print(pe9(n))
 
 if __name__ == "__main__":
     main()

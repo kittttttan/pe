@@ -12,7 +12,7 @@ def chain(n):
             cache[n] = 1 + chain(n >> 1)
     return cache[n]
 
-def pe14(limit):
+def pe14(limit=1000000):
     """
     Which starting number produces the longest Collatz chain?
     """
@@ -21,7 +21,7 @@ def pe14(limit):
         c = chain(i)
         if m < c:
             m, mi = c, i
-    print(mi, m)
+    return(mi, m)
 
 def main():
     argc = len(argv)
@@ -33,8 +33,8 @@ def main():
             return
     else:
         n = 1000000
-    
-    pe14(n)
+
+    print(pe14(n))
 
 if __name__ == "__main__":
     main()

@@ -3,11 +3,11 @@
 from sys import argv
 from pe import get_prime
 
-def pe7(n):
+def pe7(n=10001):
     """
     Find the 10001st prime.
     """
-    print(get_prime(n))
+    return(get_prime(n))
 
 def main():
     argc = len(argv)
@@ -19,8 +19,8 @@ def main():
             return
     else:
         n = 10001
-    
-    pe7(n)
+
+    print(pe7(n))
 
 if __name__ == "__main__":
     main()

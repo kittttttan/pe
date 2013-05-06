@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
- 
+
 from sys import argv
 from datetime import date
- 
-def pe19(n):
+
+def pe19(n=2000):
     """
     How many Sundays fell on the first of the month
     during the twentieth century?
@@ -14,7 +14,7 @@ def pe19(n):
             d = date(y, m, 1)
             if d.weekday() == 6:
                 s += 1
-    print("%d Sundays do (1901 to %d)" % (s, n))
+    return s
 
 def main():
     argc = len(argv)
@@ -27,7 +27,7 @@ def main():
     else:
         n = 2000
 
-    pe19(n)
+    print("%d Sundays do (1901 to %d)" % (pe19(n), n))
 
 if __name__ == "__main__":
     main()

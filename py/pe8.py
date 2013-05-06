@@ -2,7 +2,7 @@
 
 from sys import argv
 
-def pe8(fname, n):
+def pe8(fname="../res/pe8.txt", n=5):
     """
     Discover the largest product of five consecutive digits
     in the 1000-digit number.
@@ -20,21 +20,21 @@ def pe8(fname, n):
             t *= int(s[x + y])
         if m < t:
             m = t
-    print(m)
+    return(m)
 
 def main():
     argc = len(argv)
     if argc > 1:
         fname = argv[1]
     else:
-        fname = "pe8.txt"
+        fname = "../res/pe8.txt"
     if argc > 2:
         n = int(argv[2])
     else:
         n = 5
 
     try:
-        pe8(fname, n)
+        print(pe8(fname, n))
     except FileNotFoundError:
         print("""file not found: %s
 

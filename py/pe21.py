@@ -2,8 +2,8 @@
 
 from sys import argv
 from pe import spd
- 
-def pe21(limit):
+
+def pe21(limit=10000):
     """
     Evaluate the sum of all amicable pairs under 10000.
     """
@@ -14,7 +14,7 @@ def pe21(limit):
         if i < t and i == spd(t):
             s += i + t
             ami.append((i, t))
-    print(s, ami)
+    return (s, ami)
 
 def main():
     argc = len(argv)
@@ -27,7 +27,7 @@ def main():
     else:
         n = 10000
 
-    pe21(n)
+    print(pe21(n))
 
 if __name__ == "__main__":
     main()

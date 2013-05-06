@@ -1,16 +1,16 @@
 #! /usr/bin/env python3
 
-from time import time
 from math import log
-
-def time_func(f):
-    t = time()
-    f()
-    print("%ss" % (time() - t))
 
 def get_prime(n):
     """
     Get nth prime.
+    
+    >>> get_prime(1)
+    2
+    
+    >>> get_prime(10)
+    29
     """
     if n < 1: return 0
     if n < 50:
@@ -28,7 +28,7 @@ def get_prime(n):
             m = n//i - i
             s[i * i : n + 1 : i] = [False] * (m + 1)
     i,j = 0,0
-    while True:
+    while 1:
         if s[j]:
             i += 1
             if i >= n0: break
@@ -38,6 +38,9 @@ def get_prime(n):
 def sieve(n):
     """
     Get primes below n.
+    
+    >>> sieve(10)
+    [2, 3, 5, 7]
     """
     s = [True] * (n + 1)
     s[0], s[1] = False, False
@@ -54,12 +57,21 @@ primes2 = sieve(2766)
 def is_prime(n):
     """
     Fast checking below n.
+    
+    >>> is_prime(997)
+    True
+    
+    >>> is_prime(1001)
+    False
     """
     return n in primes
 
 def is_prime2(n):
     """
     Slow checking below n * n.
+    
+    >>> is_prime2(97)
+    True
     """
     if n < 2: return False
     for p in primes2:
@@ -71,6 +83,9 @@ def is_prime2(n):
 def get_divisors(n):
     """
     Get divisors.
+    
+    >>> get_divisors(180)
+    [2, 2, 3, 3, 5]
     """
     p = []
     limit = int(n**0.5)
@@ -94,6 +109,9 @@ def get_divisors(n):
 def count_divisors(n):
     """
     Count divisors.
+    
+    >>> count_divisors(18) # 18 can be divided by 1,2,3,6,9,18
+    6
     """
     p = get_divisors(n)
     pl = len(p)
@@ -102,7 +120,7 @@ def count_divisors(n):
     t = 0
     c = 1
     for i in range(pl):
-        if i+1 < pl and p[i] == p[i + 1]:
+        if i + 1 < pl and p[i] == p[i + 1]:
             t += 1
         else:
             c *= t + 2
@@ -112,32 +130,46 @@ def count_divisors(n):
 def count_distinct(n):
     """
     Count distinct divisors.
+    
+    >>> count_distinct(180) # 180 = (2*2)*(3*3)*5
+    3
     """
     return len(set(get_divisors(n)))
 
 def is_palindrome(n):
+    """
+    
+    >>> is_palindrome(12321)
+    True
+    
+    >>> is_palindrome(99)
+    True
+    
+    >>> is_palindrome(0)
+    True
+    """
     s = str(n)
-    if s == s[::-1]:
-        return True
-    return False
-
-def fact(n):
-    """factorial: n!"""
-    f = 1
-    while n > 1:
-        f *= n
-        n -= 1
-    return f
+    return s == s[::-1]
 
 def perm(n, m):
-    """permutation: nPm"""
+    """
+    permutation: nPm
+    
+    >>> perm(5, 2) # 5*4
+    20
+    """
     f = 1
-    for i in range(n - m + 1, n+1):
+    for i in range(n - m + 1, n + 1):
         f *= i
     return f
 
 def comb(n, m):
-    """combination: nCm"""
+    """
+    combination: nCm
+    
+    >>> comb(5, 2) # 5*4 // (2*1)
+    10
+    """
     c = d = 1
     if n >= m >= 0:
         while m > 0:
@@ -150,6 +182,9 @@ def comb(n, m):
 def pod(n, p):
     """
     Sum of pth powers of n's digits.
+    
+    >>> pod(123, 2) # 1**2 + 2**2 + 3**2
+    14
     """
     s = 0
     while n:
@@ -160,32 +195,69 @@ def pod(n, p):
 def sod(n):
     """
     Sum of digits.
+    
+    >>> sod(123) # 1 + 2 + 3
+    6
     """
     s = 0
-    for i in str(n):
-        s += int(i)
+    while n:
+        s += n % 10
+        n //= 10
     return s
 
 def spd(n):
     """
     Sum of proper divisors.
+    
+    >>> spd(6) # 6 can be divided by 1,2,3 excluding 6
+    6
+    
+    >>> spd(9) # 1,3
+    4
     """
     if not n > 2:
         return 1
     s = 1
     sq = n**0.5
-    for i in range(2, int(sq)+1):
+    isq = int(sq)
+    for i in range(2, isq + 1):
         if not n % i:
             s += i + n//i
-    if sq == int(sq):
-        s -= sq
+    if sq == isq:
+        s -= isq
     return s
 
 def word_worth(sets):
     return sum(ord(letter) - ord('A') + 1 for letter in sets)
 
 def list_num(l):
+    """
+    list to number
+    
+    >>> list_num([1,2,3,4,5,6,7,8,9])
+    123456789
+    
+    >>> list_num(i for i in range(9, 0, -1))
+    987654321
+    """
     s = 0
     for n in l:
         s = s * 10 + n
     return s
+
+def _test():
+    import doctest
+
+    doctest.testmod()
+
+def _time():
+    from timeit import timeit
+    
+    n = 100000
+    stmt = "sod(123456789)"
+    print("%s x %d takes %f" % (stmt, n,
+        timeit(stmt=stmt, setup="from __main__ import sod", number=n)))
+
+if __name__ == "__main__":
+    _test()
+    #_time()

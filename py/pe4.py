@@ -2,8 +2,8 @@
 
 from sys import argv
 from pe import is_palindrome
- 
-def pe4(n):
+
+def pe4(n=3):
     """
     Find the largest palindrome made from the product of two 3-digit numbers.
     """
@@ -14,7 +14,7 @@ def pe4(n):
             xy = x * y
             if xy > max and is_palindrome(xy):
                 max = xy
-    print(max)
+    return max
 
 def main():
     argc = len(argv)
@@ -26,8 +26,8 @@ def main():
             return
     else:
         n = 3
-    
-    pe4(n)
+
+    print(pe4(n))
 
 if __name__ == "__main__":
     main()
