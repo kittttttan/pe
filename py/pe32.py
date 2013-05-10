@@ -22,7 +22,7 @@ def pe32():
     a * bcde = fghi
     ab * cde = fghi
     """
-    print(sum(set(pan(a, b) for a in range(3, 50) for b in range(123, 1988))))
+    return sum(set(pan(a, b) for a in range(3, 50) for b in range(123, 1988)))
 
 def num(l):
     s = 0

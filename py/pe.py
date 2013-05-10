@@ -228,6 +228,11 @@ def spd(n):
     return s
 
 def word_worth(sets):
+    """
+    
+    >>> word_worth('ABC')
+    6
+    """
     return sum(ord(letter) - ord('A') + 1 for letter in sets)
 
 def list_num(l):
@@ -245,19 +250,6 @@ def list_num(l):
         s = s * 10 + n
     return s
 
-def _test():
-    import doctest
-
-    doctest.testmod()
-
-def _time():
-    from timeit import timeit
-    
-    n = 100000
-    stmt = "sod(123456789)"
-    print("%s x %d takes %f" % (stmt, n,
-        timeit(stmt=stmt, setup="from __main__ import sod", number=n)))
-
 if __name__ == "__main__":
-    _test()
-    #_time()
+    import doctest
+    doctest.testmod()

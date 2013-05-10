@@ -17,7 +17,7 @@ def pe24(n=999999):
         res.append(str(nums.pop(n // b[k - 1])))
         n %= b[k - 1]
     res.append(str(nums[0]))
-    print(''.join(res))
+    return ''.join(res)
 
 def main():
     argc = len(argv)
