@@ -12,6 +12,16 @@ def chain(n):
             cache[n] = 1 + chain(n >> 1)
     return cache[n]
 
+def chain_count(n):
+    c = 1
+    while n > 1:
+        if n & 1:
+            n = 3 * n + 1
+        else:
+            n >>= 1
+        c += 1
+    return c
+
 def pe14(limit=1000000):
     """
     Which starting number produces the longest Collatz chain?

@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 
   vector<uint> vec;
 
-  get_divs(vec, n);
+  get_divs(&vec, n);
   cout << n << endl;
   
   // max

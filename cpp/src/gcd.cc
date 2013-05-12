@@ -11,7 +11,8 @@
  * @param[in] b
  * @return 
  */
-uint gcd(uint a, uint b) {
+uint gcd(uint a, uint b)
+{
   uint c;
 
   assert(b != 0);
@@ -31,7 +32,8 @@ uint gcd(uint a, uint b) {
  * @param[in] b
  * @return 
  */
-uint lcm(uint a, uint b) {
+uint lcm(uint a, uint b)
+{
   uint c;
 
   c = gcd(a, b);

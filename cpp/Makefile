@@ -7,7 +7,8 @@ OUTDIR = build/
 SOURCES = $(wildcard $(SRCDIR)*.cc)
 OBJS = $(SOURCES:$(SRCDIR)%.cc=$(OBJDIR)%.o)
 
-all: pe1 pe2 pe3 pe4 pe5 pe6 pe7
+all: pe1 pe2 pe3 pe4 pe5 pe6 pe7 pe8 pe9 pe10 \
+  pe11 pe12 pe13 pe14 pe15
 
 pe1: $(OBJDIR)pe1.o
 	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
@@ -29,6 +30,30 @@ pe6: $(OBJDIR)pe6.o
 
 pe7: $(OBJDIR)pe7.o $(OBJDIR)prime.o
 	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o $(OBJDIR)prime.o
+
+pe8: $(OBJDIR)pe8.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe9: $(OBJDIR)pe9.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe10: $(OBJDIR)pe10.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe11: $(OBJDIR)pe11.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe12: $(OBJDIR)pe12.o $(OBJDIR)divs.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o $(OBJDIR)divs.o
+
+pe13: $(OBJDIR)pe13.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe14: $(OBJDIR)pe14.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o
+
+pe15: $(OBJDIR)pe15.o $(OBJDIR)divs.o
+	$(CXX) -o $(OUTDIR)$@ $(OBJDIR)$@.o $(OBJDIR)divs.o
 
 clean:
 	-$(RM) $(OUTDIR)*.exe $(OBJS)
