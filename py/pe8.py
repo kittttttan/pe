@@ -14,7 +14,7 @@ def pe8(fname="../res/pe8.txt", n=5):
     if ls < n:
         raise ValueError
     m = 0
-    for x in range(ls - n):
+    for x in range(ls - n + 1):
         t = 1
         for y in range(n):
             t *= int(s[x + y])

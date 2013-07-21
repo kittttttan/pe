@@ -29,7 +29,7 @@ int sieve(vector<int>& p, int l) {
   }
   limit = static_cast<int>(floor(l * times));
 
-  s = new int[limit];
+  s = new int[limit + 1];
   if (!s) {
     cerr << "failed malloc: " << __FILE__ << ":" << __LINE__ << endl;
     return 0;
@@ -68,7 +68,7 @@ int sieve(vector<int>& p, int l) {
 int sieve_below(vector<int>& p, int limit) {
   int i, j, sq, *s;
 
-  s = new int[limit];
+  s = new int[limit + 1];
   if (!s) {
     cerr << "failed malloc: " << __FILE__ << ":" << __LINE__ << endl;
     return 0;

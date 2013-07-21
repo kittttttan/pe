@@ -14,3 +14,4 @@ ipch/
 .metadata/
 .settings/
 *.class
+*.jar

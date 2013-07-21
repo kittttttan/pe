@@ -26,7 +26,7 @@ int sieve(int *p, int l) {
   }
   limit = (int)floor(l * times);
 
-  s = (int*)malloc(sizeof(int) * limit);
+  s = (int*)malloc(sizeof(int) * (limit + 1));
   if (!s) {
     fprintf(stderr, "failed malloc: %s@%d\n", __FILE__, __LINE__);
     return 0;
@@ -64,7 +64,7 @@ int sieve(int *p, int l) {
 int sieve_below(int *p, int limit) {
   int i, j, sq, *s;
 
-  s = (int*)malloc(sizeof(int) * limit);
+  s = (int*)malloc(sizeof(int) * (limit + 1));
   if (!s) {
     fprintf(stderr, "failed malloc: %s@%d\n", __FILE__, __LINE__);
     return 0;

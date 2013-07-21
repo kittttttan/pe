@@ -36,7 +36,7 @@ void pe8(int n) {
 
   m = 0;
   if (n > 0 && n < 1000) {
-    for (i = 0; i < 1000 - n; ++i) {
+    for (i = 0; i < 1000 - n + 1; ++i) {
       t = 1;
       for (j = 0; j < n; ++j) {
         t *= digits[i + j];
