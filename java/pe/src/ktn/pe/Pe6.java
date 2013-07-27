@@ -9,7 +9,7 @@ public class Pe6 implements Pe {
      * @param n
      * @return
      */
-    public static int pe6(int n) {
+    public int pe6(int n) {
         return n * (n + 1) * (n - 1) * (3 * n + 2) / 12;
     }
 
@@ -26,7 +26,17 @@ public class Pe6 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe6(n));
+        System.out.println(PeUtils.format(this, pe6(n)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 6;
     }
 
 }

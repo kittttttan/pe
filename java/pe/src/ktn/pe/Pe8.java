@@ -10,10 +10,11 @@ import java.util.logging.Logger;
 public class Pe8 implements Pe {
     private static final Logger logger = Logger.getLogger(Pe8.class.getName());
     private static final String defaultFilename = "../res/pe8.txt";
+    
     private String fname = defaultFilename;
     private int digits = 5;
 
-    private static String loadFile(File file) {
+    private String loadFile(File file) {
         if (file == null) {
             return null;
         }
@@ -33,7 +34,7 @@ public class Pe8 implements Pe {
         return buf.toString();
     }
 
-    public static int product(String numbers, int n) {
+    public int product(String numbers, int n) {
         int m = 1;
         if (numbers == null) {
             return m;
@@ -54,11 +55,15 @@ public class Pe8 implements Pe {
         return m;
     }
 
-    public static int pe8(int n) {
-        return pe8(defaultFilename, n);
+    public int pe8() {
+        return pe8(fname, digits);
+    }
+    
+    public int pe8(int n) {
+        return pe8(fname, n);
     }
 
-    public static int pe8(String fname, int n) {
+    public int pe8(String fname, int n) {
         File file = new File(fname);
         String numbers = loadFile(file);
         logger.fine(numbers);
@@ -86,7 +91,33 @@ public class Pe8 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe8(fname, digits));
+        System.out.println(PeUtils.format(this, pe8()));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 8;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public int getDigits() {
+        return digits;
+    }
+
+    public void setDigits(int digits) {
+        this.digits = digits;
     }
 
 }

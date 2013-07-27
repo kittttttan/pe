@@ -8,7 +8,7 @@ public class Pe4 implements Pe {
      * @param n
      * @return
      */
-    public static boolean isPalindrome(int n) {
+    public boolean isPalindrome(int n) {
         String src = String.valueOf(n);
         String reversed = new StringBuilder(src).reverse().toString();
 
@@ -20,7 +20,7 @@ public class Pe4 implements Pe {
      * @param digits
      * @return
      */
-    public static int pe4(int digits) {
+    public int pe4(int digits) {
         if (digits < 1) {
             return 0;
         }
@@ -58,6 +58,16 @@ public class Pe4 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe4(digits));
+        System.out.println(PeUtils.format(this, pe4(digits)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 4;
     }
 }

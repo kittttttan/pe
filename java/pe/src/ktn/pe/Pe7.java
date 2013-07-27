@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Pe7 implements Pe {
     private int index = 10001;
 
-    public static int pe7(int n) {
+    public int pe7(int n) {
         if (n < 1) {
             return 0;
         }
@@ -52,7 +52,17 @@ public class Pe7 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe7(index));
+        System.out.println(PeUtils.format(this, pe7(index)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 7;
     }
 
 }

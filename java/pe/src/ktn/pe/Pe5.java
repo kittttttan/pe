@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Pe5 implements Pe {
     private int to = 20;
 
-    public static long pe5(int to) {
+    public long pe5(int to) {
         long mul = 1L;
 
         if (to < 2) {
@@ -50,7 +50,17 @@ public class Pe5 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe5(to));
+        System.out.println(PeUtils.format(this, pe5(to)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 5;
     }
 
 }

@@ -3,7 +3,7 @@ package ktn.pe;
 public class Pe9 implements Pe {
     private int limit = 1000;
 
-    public static int pe9(int limit) {
+    public int pe9(int limit) {
         int last = (limit >> 1) + 1;
         for (int x = 1; x < last; ++x) {
             int x2 = x * x;
@@ -35,7 +35,17 @@ public class Pe9 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe9(limit));
+        System.out.println(PeUtils.format(this, pe9(limit)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 9;
     }
 
 }

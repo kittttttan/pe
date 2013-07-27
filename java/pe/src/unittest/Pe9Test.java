@@ -10,8 +10,10 @@ public class Pe9Test {
 
     @Test
     public void test() {
-        assertThat("0 0", Pe9.pe9(0), is(0));
-        assertThat("12 60", Pe9.pe9(12), is(60));
+        Pe9 pe9 = new Pe9();
+        
+        assertThat("0 0", pe9.pe9(0), is(0));
+        assertThat("12 60", pe9.pe9(12), is(60));
     }
 
 }

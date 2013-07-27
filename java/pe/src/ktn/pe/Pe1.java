@@ -9,7 +9,7 @@ public class Pe1 implements Pe {
      * @param limit
      * @return
      */
-    private static int sumToX2(int limit) {
+    private int sumToX2(int limit) {
         return limit * (limit + 1);
     }
 
@@ -18,7 +18,7 @@ public class Pe1 implements Pe {
      * @param limit
      * @return
      */
-    public static int pe1(int limit) {
+    public int pe1(int limit) {
         int sum = 0;
 
         if (limit > 2) {
@@ -33,7 +33,7 @@ public class Pe1 implements Pe {
      * @param limit
      * @return
      */
-    public static int pe1loop(int limit) {
+    public int pe1loop(int limit) {
         int sum = 0;
 
         for (int i = 3; i <= limit; ++i) {
@@ -58,6 +58,16 @@ public class Pe1 implements Pe {
 
     @Override
     public void solve() {
-        System.out.println(pe1(limit));
+        System.out.println(PeUtils.format(this, pe1(limit)));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 1;
     }
 }

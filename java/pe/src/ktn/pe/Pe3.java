@@ -12,42 +12,6 @@ public class Pe3 implements Pe {
         n = 600851475143L;
     }
 
-    public static void pe3(List<Long> divisors, long n) {
-        if (n == 0) {
-            return;
-        }
-        if (n < 0) {
-            n = -n;
-            divisors.add(-1L);
-        }
-
-        while ((n & 1) == 0) {
-            divisors.add(2L);
-            n >>= 1;
-        }
-
-        long limit = (long) Math.sqrt(n);
-        if (limit < 3L) {
-            limit = 3L;
-        }
-
-        long i = 3L;
-        while (i <= limit) {
-            if ((n % i) == 0) {
-                divisors.add(i);
-                n /= i;
-                if (n < i) {
-                    break;
-                }
-            } else {
-                i += 2;
-            }
-        }
-        if (n > 1) {
-            divisors.add(n);
-        }
-    }
-
     @Override
     public void setArgs(String[] args) {
         if (args != null && args.length > 0) {
@@ -62,10 +26,17 @@ public class Pe3 implements Pe {
     @Override
     public void solve() {
         List<Long> divisors = new ArrayList<Long>();
-        pe3(divisors, n);
-        for (long div : divisors) {
-            System.out.print(div + " ");
-        }
-        System.out.println("");
+        PeUtils.divisors(divisors, n);
+        System.out.println(PeUtils.format(this, divisors));
+    }
+
+    @Override
+    public void run() {
+        solve();
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 3;
     }
 }
