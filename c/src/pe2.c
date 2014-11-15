@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe2.h>
-
 #include <stdio.h>
 
 void pe2(unsigned long n) {

@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe13.h>
-
 #include <stdio.h>
 
 void pe13(void) {

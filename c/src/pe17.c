@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe17.h>
-
 #include <stdio.h>
 
 static int to20[] = {

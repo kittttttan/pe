@@ -1,6 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe7.h>
 #include <prime.h>
-
 #include <stdio.h>
 #include <stdlib.h>
 

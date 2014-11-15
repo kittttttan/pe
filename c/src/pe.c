@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
 #include <pe1.h>
 #include <pe2.h>
 #include <pe3.h>

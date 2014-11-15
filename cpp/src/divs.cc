@@ -1,5 +1,4 @@
 #include <divs.h>
-
 #include <cstddef>
 #include <cmath>
 

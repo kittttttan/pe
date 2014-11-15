@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe20.h>
-
 #include <stdio.h>
 #include <string.h>
 

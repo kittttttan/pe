@@ -1,6 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe4.h>
 #include <palindrome.h>
-
 #include <stdio.h>
 
 void pe4(int first, int last) {

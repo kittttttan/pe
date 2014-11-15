@@ -1,5 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe8.h>
-
 #include <stdio.h>
 
 enum { DIGITS_LENGTH = 1000 };

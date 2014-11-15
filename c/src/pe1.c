@@ -1,5 +1,6 @@
-#include <pe1.h>
+#define _CRT_SECURE_NO_WARNINGS 1
 
+#include <pe1.h>
 #include <stdio.h>
 
 #define SUM_X2(n) ((n) * ((n) + 1))

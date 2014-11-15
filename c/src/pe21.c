@@ -1,6 +1,6 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 #include <pe21.h>
 #include <spd.h>
-
 #include <stdio.h>
 #include <string.h>
 
