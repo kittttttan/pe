@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from pe import count_divisors
+from utils import count_divisors
 
 def pe12(sub=500):
     """

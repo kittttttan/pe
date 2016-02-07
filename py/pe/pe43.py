@@ -2,7 +2,7 @@
 
 from itertools import permutations
 
-from pe import list_num
+from utils import list_num
 
 def pe43():
     """

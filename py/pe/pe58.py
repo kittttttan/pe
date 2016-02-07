@@ -7,7 +7,7 @@ that lie on the diagonals of the spiral grid.
 """
 
 from __future__ import print_function
-from pe import sieve
+from utils import sieve
 
 primes2 = sieve(30000)
 

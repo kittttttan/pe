@@ -6,7 +6,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 """
 
 from __future__ import print_function
-from pe import is_palindrome
+from utils import is_palindrome
 
 def pe4(n=3):
     """

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from pe import perm
+from utils import perm
 from math import factorial
 
 def pe15(m=20, n=20):

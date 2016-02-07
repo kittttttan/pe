@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import is_palindrome
+from utils import is_palindrome
 
 def is_palindrome2(n):
     s = ''

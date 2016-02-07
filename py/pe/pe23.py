@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import spd
+from utils import spd
 from sys import argv
 
 def pe23(limit=28123):

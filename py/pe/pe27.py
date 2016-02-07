@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import is_prime
+from utils import is_prime
 
 def pe27():
     """

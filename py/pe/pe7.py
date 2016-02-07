@@ -3,7 +3,7 @@
 Find the 10001st prime.
 """
 
-from pe import get_prime
+from utils import get_prime
 
 def pe7(n=10001):
     """

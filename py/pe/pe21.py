@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from pe import spd
+from utils import spd
 
 def pe21(limit=10000):
     """

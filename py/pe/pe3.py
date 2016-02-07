@@ -6,7 +6,7 @@ Find the largest prime factor of a composite number.
 """
 
 from __future__ import print_function
-from pe import get_divisors
+from utils import get_divisors
 
 def pe3(n=600851475143):
     """

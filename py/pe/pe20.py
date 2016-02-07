@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from pe import sod
+from utils import sod
 from math import factorial
 
 def pe20(n=100):

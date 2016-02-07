@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from sys import argv
-from pe import word_worth
+from utils import word_worth
 
 def pe22(fname="../res/pe22.txt"):
     """

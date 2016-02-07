@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import count_distinct
+from utils import count_distinct
 
 def pe47(d=4):
     """

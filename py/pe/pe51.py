@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import sieve
+from utils import sieve
 
 primes = sieve(1000000)
 primeset = set(primes)

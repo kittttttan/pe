@@ -2,7 +2,7 @@
 
 from sys import argv
 
-from pe import word_worth
+from utils import word_worth
 
 def pe42(fname="../res/pe42.txt"):
     """

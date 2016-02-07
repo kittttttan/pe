@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import is_prime
+from utils import is_prime
 
 sq = [i * i << 1 for i in range(100)]
 

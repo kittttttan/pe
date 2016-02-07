@@ -2,7 +2,7 @@
 
 from itertools import permutations
 
-from pe import is_prime
+from utils import is_prime
 
 def pe49(limit=10000):
     """

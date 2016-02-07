@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import comb
+from utils import comb
 
 def pe53(limit=100):
     """

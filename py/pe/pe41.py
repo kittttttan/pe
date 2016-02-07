@@ -2,7 +2,7 @@
 
 from itertools import permutations
 
-from pe import is_prime2, list_num
+from utils import is_prime2, list_num
 
 def pe41():
     """

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from pe import sieve
+from utils import sieve
 
 def pe37():
     """
