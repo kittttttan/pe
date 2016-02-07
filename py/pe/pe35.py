@@ -1,10 +1,14 @@
 #!/usr/bin/env python
+"""
+How many circular primes are there below one million?
+"""
 
 from utils import sieve
 
 def pe35(limit=1000000):
     """
-    How many circular primes are there below one million?
+    >>> pe35()
+    55
     """
     ps = set(sieve(limit))
     s = 0
@@ -14,7 +18,8 @@ def pe35(limit=1000000):
         for i in range(1, pl):
             t = 10**i
             pp = (p % t) * 10**(pl - i) + p // t
-            if pp not in ps: break
+            if pp not in ps:
+                break
         else:
             s += 1
             # circ.append(p)
@@ -22,4 +27,13 @@ def pe35(limit=1000000):
     # print(circ)
 
 if __name__ == "__main__":
-    print(pe35())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe35(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

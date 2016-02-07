@@ -1,12 +1,14 @@
 #!/usr/bin/env python
-
-from sys import argv
+"""
+How many triangle words does the list of common English words contain?
+"""
 
 from utils import word_worth
 
-def pe42(fname="../res/pe42.txt"):
+def pe42(fname="../../res/pe42.txt"):
     """
-    How many triangle words does the list of common English words contain?
+    >>> pe42()
+    162
     """
     with open(fname, 'r') as f:
         words = f.read()
@@ -15,19 +17,6 @@ def pe42(fname="../res/pe42.txt"):
     # print([w for w in words if worth(w) in triangles])
     return sum([1 for w in words if word_worth(w) in triangles])
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        fname = argv[1]
-    else:
-        fname = "../res/pe42.txt"
-
-    try:
-        print(pe42(fname))
-    except FileNotFoundError:
-        print("""file not found: %s
-
-  python pe42.py [filepath]""" % fname)
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()

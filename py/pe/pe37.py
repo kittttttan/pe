@@ -1,11 +1,15 @@
 #!/usr/bin/env python
+"""
+Find the sum of all eleven primes
+that are both truncatable from left to right and right to left.
+"""
 
 from utils import sieve
 
 def pe37():
     """
-    Find the sum of all eleven primes
-    that are both truncatable from left to right and right to left.
+    >>> pe37()
+    [23, 37, 53, 73, 313, 317, 373, 797, 3137, 3797, 739397]
     """
     s = 0
     p0 = sieve(1000000)
@@ -23,7 +27,8 @@ def pe37():
             else:
                 f = False
                 break
-        if not f: continue
+        if not f:
+            continue
         i2 = i2[1:]
         while i2:
             if int(i2) in p:
@@ -35,9 +40,11 @@ def pe37():
             t.append(i)
             # s += i
             tl += 1
-            if tl >= 11: break
+            if tl >= 11:
+                break
     return t
     # print(s)
 
 if __name__ == "__main__":
-    print(pe37())
+    import doctest
+    doctest.testmod()

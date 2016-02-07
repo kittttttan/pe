@@ -1,8 +1,12 @@
 #!/usr/bin/env python
+"""
+How many different ways can L2 be made using any number of coins?
+"""
 
 def pe31(target=200):
     """
-    How many different ways can L2 be made using any number of coins?
+    >>> pe31()
+    
     """
     coins = [1, 2, 5, 10, 20, 50, 100, 200]
     ways = [1] + [0] * target
@@ -12,4 +16,13 @@ def pe31(target=200):
     return ways[target]
 
 if __name__ == "__main__":
-    print(pe31())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe31(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

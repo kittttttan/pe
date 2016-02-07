@@ -4,12 +4,12 @@ Discover the largest product of five consecutive digits
 in the 1000-digit number.
 """
 
-def pe8(fname="../res/pe8.txt", n=5):
+def pe8(fname="../../res/pe8.txt", n=5):
     """
     Discover the largest product of five consecutive digits
     in the 1000-digit number.
 
-    >>> pe8('../../res/pe8.txt')
+    >>> pe8()
     40824
     """
     with open(fname, 'r') as f:
@@ -35,6 +35,6 @@ if __name__ == "__main__":
         while True:
             s = input('> ')
             n = int(s)
-            print(pe8('../../res/pe8.txt', n=n))
+            print(pe8(n=n))
     except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
         pass

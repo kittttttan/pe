@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import absolute_import, print_function
-from pe import LAST
+from __init__ import LAST
 from timeit import timeit
 
 def main():
@@ -18,7 +18,7 @@ def main():
             except:
                 print('Invalid number: {0}'.format(s))
                 continue
-            t = timeit('print(pe{0}())'.format(n), setup='from pe.pe{0} import pe{1}'.format(n, n), number=rep)
+            t = timeit('print(pe{0}())'.format(n), setup='from pe{0} import pe{1}'.format(n, n), number=rep)
             print('{0}s at {1} times'.format(t, rep))
     except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
         pass

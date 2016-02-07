@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+Find the smallest prime which, by changing the same part of the number,
+can form eight different primes.
+"""
 
 from utils import sieve
 
@@ -33,8 +37,8 @@ def count_change(sp, n):
 
 def pe51():
     """
-    Find the smallest prime which, by changing the same part of the number,
-    can form eight different primes.
+    >>> pe51()
+    121313
     """
     for p in primes:
         sp = str(p)
@@ -45,8 +49,5 @@ def pe51():
     return -1
 
 if __name__ == "__main__":
-    ans = pe51()
-    if ans < 0:
-        print("Not Found")
-    else:
-        print(ans)
+    import doctest
+    doctest.testmod()

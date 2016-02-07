@@ -1,9 +1,13 @@
 #!/usr/bin/env python
+"""
+If p is the perimeter of a right angle triangle, {a, b, c},
+which value, for p <= 1000, has the most solutions?
+"""
 
 def pe39(limit=1000):
     """
-    If p is the perimeter of a right angle triangle, {a, b, c},
-    which value, for p <= 1000, has the most solutions?
+    >>> pe39()
+    (840, 8)
     """
     # py = []
     ps = []
@@ -30,4 +34,13 @@ def pe39(limit=1000):
     return (mp, ms)
 
 if __name__ == "__main__":
-    print(pe39())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe39(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

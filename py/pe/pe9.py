@@ -3,11 +3,8 @@
 Find the only Pythagorean triplet, {a, b, c}, for which a + b + c = 1000.
 """
 
-
 def pe9(limit=1000):
     """
-    Find the only Pythagorean triplet, {a, b, c}, for which a + b + c = 1000.
-
     >>> pe9()
     31875000
     """

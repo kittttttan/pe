@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+Discover all the fractions with an unorthodox cancelling method.
+"""
 
 from fractions import Fraction
 
@@ -16,7 +19,8 @@ def is_curious(n, d):
 
 def pe33():
     """
-    Discover all the fractions with an unorthodox cancelling method.
+    >>> pe33()
+    100
     """
     fractions = ((x, y) for x in range(10, 100) for y in range(10, 100))
     m = 1
@@ -25,4 +29,5 @@ def pe33():
     return m.denominator
 
 if __name__ == "__main__":
-    print(pe33())
+    import doctest
+    doctest.testmod()

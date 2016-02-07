@@ -1,27 +1,26 @@
 #!/usr/bin/env python
+"""
+Find the sum of digits in 100!
+"""
 
-from sys import argv
 from utils import sod
 from math import factorial
 
 def pe20(n=100):
     """
-    Find the sum of digits in 100!
+    >>> pe20()
+    648
     """
     return sod(factorial(n))
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            n = int(argv[1])
-        except ValueError:
-            print("  python pe20.py [integer]")
-            return
-    else:
-        n = 100
-
-    print("sum of digits in %d! is %d" % (n, pe20(n)))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe20(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

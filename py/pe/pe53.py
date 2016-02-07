@@ -1,10 +1,14 @@
 #!/usr/bin/env python
+"""
+How many values of C(n,r), for 1 <= n <= 100, exceed one-million?
+"""
 
 from utils import comb
 
 def pe53(limit=100):
     """
-    How many values of C(n,r), for 1 <= n <= 100, exceed one-million?
+    >>> pe53()
+    4075
     """
     cnt = 0
     for n in range(1, limit+1, 2):
@@ -23,4 +27,13 @@ def pe53(limit=100):
     return cnt
 
 if __name__ == "__main__":
-    print(pe53())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe53(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

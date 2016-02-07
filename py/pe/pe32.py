@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+"""
+Find the sum of all numbers that can be written as pandigital products.
+
+a * bcde = fghi
+ab * cde = fghi
+"""
 
 from itertools import permutations
 
@@ -16,11 +22,8 @@ def pan(a, b):
 
 def pe32():
     """
-    Find the sum of all numbers that can be written as pandigital products.
-    """
-    """
-    a * bcde = fghi
-    ab * cde = fghi
+    >>> pe32()
+    45228
     """
     return sum(set(pan(a, b) for a in range(3, 50) for b in range(123, 1988)))
 
@@ -31,6 +34,10 @@ def num(l):
     return s
 
 def pe32b():
+    """
+    >>> pe32b()
+    45228
+    """
     product = {}
     for perm in permutations(range(1, 10)):
         for cross in range(1, 4): 
@@ -43,4 +50,5 @@ def pe32b():
     return sum(p for p in product)
 
 if __name__ == "__main__":
-    print(pe32())
+    import doctest
+    doctest.testmod()

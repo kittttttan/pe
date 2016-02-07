@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+Find the smallest positive integer,
+x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits in some order.
+"""
 
 def sd(n):
     digit = set(list(str(n)))
@@ -9,8 +13,8 @@ def sd(n):
 
 def pe52():
     """
-    Find the smallest positive integer,
-    x, such that 2x, 3x, 4x, 5x, and 6x, contain the same digits in some order.
+    >>> pe52()
+    142857
     """
     res = -1
     for i in range(100008, 200000, 9):
@@ -20,8 +24,5 @@ def pe52():
     return res
 
 if __name__ == "__main__":
-    ans = pe52()
-    if ans < 0:
-        print("Not Found")
-    else:
-        print(ans)
+    import doctest
+    doctest.testmod()

@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+Finding the nth digit of the fractional part of the irrational number.
+"""
 
 def digit_at(n):
     d = 1
@@ -22,7 +25,8 @@ def digit_at(n):
 
 def pe40():
     """
-    Finding the nth digit of the fractional part of the irrational number.
+    >>> pe40()
+    210
     """
     d = 1
     for i in range(7):
@@ -31,4 +35,5 @@ def pe40():
     return d
 
 if __name__ == "__main__":
-    print(pe40())
+    import doctest
+    doctest.testmod()

@@ -4,9 +4,9 @@ What is the greatest product of four numbers
 on the same straight line in the 20 by 20 grid?
 """
 
-def pe11(fname="../res/pe11.txt", n=4):
+def pe11(fname="../../res/pe11.txt", n=4):
     """
-    >>> pe11('../../res/pe11.txt')
+    >>> pe11()
     70600674
     """
     with open(fname, 'r') as f:
@@ -40,6 +40,6 @@ if __name__ == "__main__":
         while True:
             s = input('> ')
             n = int(s)
-            print(pe11('../../res/pe11.txt', n=n))
+            print(pe11(n=n))
     except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
         pass

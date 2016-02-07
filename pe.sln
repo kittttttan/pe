@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "fs", "fs\fs.fsproj", "{289A1B4A-A4B3-4932-AB5E-CA761B9BABA8}"
-EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "py", "py\py.pyproj", "{695570A6-546F-45BF-963F-2A1D5949D95E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c", "c\c.vcxproj", "{594CDAFD-AD32-4353-9A89-570AD55B7467}"
 EndProject
@@ -29,12 +27,6 @@ Global
 		{289A1B4A-A4B3-4932-AB5E-CA761B9BABA8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{289A1B4A-A4B3-4932-AB5E-CA761B9BABA8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{289A1B4A-A4B3-4932-AB5E-CA761B9BABA8}.Release|Win32.ActiveCfg = Release|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{695570A6-546F-45BF-963F-2A1D5949D95E}.Release|Win32.ActiveCfg = Release|Any CPU
 		{594CDAFD-AD32-4353-9A89-570AD55B7467}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{594CDAFD-AD32-4353-9A89-570AD55B7467}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{594CDAFD-AD32-4353-9A89-570AD55B7467}.Debug|Mixed Platforms.Build.0 = Debug|Win32

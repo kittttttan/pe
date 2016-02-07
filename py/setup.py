@@ -16,6 +16,7 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
     ],
-    # ext_modules = cythonize("pe_runner.py"),
-    packages=[''],
+    # ext_modules = cythonize("pe/runner.py"),
+    # package_dir={'': 'pe'},
+    packages=['pe'],
 )

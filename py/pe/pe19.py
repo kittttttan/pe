@@ -1,12 +1,15 @@
 #!/usr/bin/env python
+"""
+How many Sundays fell on the first of the month
+during the twentieth century?
+"""
 
-from sys import argv
 from datetime import date
 
 def pe19(n=2000):
     """
-    How many Sundays fell on the first of the month
-    during the twentieth century?
+    >>> pe19()
+    171
     """
     s = 0
     for y in range(1901, n + 1):
@@ -16,18 +19,14 @@ def pe19(n=2000):
                 s += 1
     return s
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            n = int(argv[1])
-        except ValueError:
-            print("  python pe19.py [integer]")
-            return
-    else:
-        n = 2000
-
-    print("%d Sundays do (1901 to %d)" % (pe19(n), n))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe19(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

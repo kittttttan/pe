@@ -1,10 +1,14 @@
 #!/usr/bin/env python
+"""
+After 40755, what is the next triangle number
+that is also pentagonal and hexagonal?
+T285 = P165 = H143 = 40755.
+"""
 
 def pe45():
     """
-    After 40755, what is the next triangle number
-    that is also pentagonal and hexagonal?
-    T285 = P165 = H143 = 40755.
+    >>> pe45()
+    (1533776805, 27549)
     """
     limit = 30000
     h = [n * ((n << 1) - 1) for n in range(144, limit)]
@@ -17,8 +21,5 @@ def pe45():
     return None
 
 if __name__ == "__main__":
-    ans = pe45()
-    if ans is None:
-        print("Not Found")
-    else:
-        print(ans)
+    import doctest
+    doctest.testmod()

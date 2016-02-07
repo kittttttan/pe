@@ -1,42 +1,35 @@
 #!/usr/bin/env python
+"""
+Starting in the top left corner in a 20 by 20 grid,
+how many routes are there to the bottom right corner?
+"""
 
-from sys import argv
 from utils import perm
 from math import factorial
 
 def pe15(m=20, n=20):
     """
-    Starting in the top left corner in a 20 by 20 grid,
-    how many routes are there to the bottom right corner?
+    >>> pe15()
+    137846528820
     """
 
-    #return factorial(m + n) // (factorial(m) * factorial(n))
+    # return factorial(m + n) // (factorial(m) * factorial(n))
 
     p = perm(m + n, m)
     f = factorial(n)
-    #print("%d / %d = %d" % (p, f, p // f))
+    # print("%d / %d = %d" % (p, f, p // f))
     return p // f
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            m = int(argv[1])
-        except ValueError:
-            print("  python pe15.py [integer [integer]]")
-            return
-    else:
-        m = 20
-    if argc > 2:
-        try:
-            n = int(argv[2])
-        except ValueError:
-            print("  python pe15.py [integer [integer]]")
-            return
-    else:
-        n = 20
-
-    print(pe15(m, n))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('m> ')
+            m = int(s)
+            s = input('n> ')
+            n = int(s)
+            print(pe15(m, n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

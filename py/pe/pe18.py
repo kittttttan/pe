@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+"""
+Find the maximum sum travelling from the top of the triangle to the base.
+"""
 
-from sys import argv
-
-def pe18(fname="../res/pe18.txt"):
+def pe18(fname="../../res/pe18.txt"):
     """
-    Find the maximum sum travelling from the top of the triangle to the base.
+    >>> pe18()
+    1074
     """
     with open(fname, 'r') as f:
         s = f.read()
@@ -19,19 +21,6 @@ def pe18(fname="../res/pe18.txt"):
                     max(int(s[size - i][j]), int(s[size - i][j + 1]))
     return(s[0][0])
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        fname = argv[1]
-    else:
-        fname = "../res/pe18.txt"
-
-    try:
-        print(pe18(fname))
-    except FileNotFoundError:
-        print("""file not found: %s
-
-  python pe18.py [filepath]""" % fname)
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()

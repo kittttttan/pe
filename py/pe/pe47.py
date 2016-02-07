@@ -1,11 +1,15 @@
 #!/usr/bin/env python
+"""
+Find the first four consecutive integers
+to have four distinct primes factors.
+"""
 
 from utils import count_distinct
 
 def pe47(d=4):
     """
-    Find the first four consecutive integers
-    to have four distinct primes factors.
+    >>> pe47()
+    134043
     """
     i = 14
     while 1:
@@ -18,4 +22,13 @@ def pe47(d=4):
         i += 1
 
 if __name__ == "__main__":
-    print(pe47())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe47(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

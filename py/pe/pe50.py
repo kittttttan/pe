@@ -1,11 +1,15 @@
 #!/usr/bin/env python
+"""
+Which prime, below one-million,
+can be written as the sum of the most consecutive primes?
+"""
 
 from utils import sieve
 
 def pe50(below=1000000):
     """
-    Which prime, below one-million,
-    can be written as the sum of the most consecutive primes?
+    >>> pe50()
+    (997651, 542)
     """
     primes = sieve(below)
     ps = set(primes)
@@ -23,4 +27,13 @@ def pe50(below=1000000):
     return (m, ml)
 
 if __name__ == "__main__":
-    print(pe50())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe50(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

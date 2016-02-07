@@ -1,13 +1,17 @@
 #!/usr/bin/env python
+"""
+What is the smallest odd composite
+that cannot be written as the sum of a prime and twice a square?
+"""
 
 from utils import is_prime
 
-sq = [i * i << 1 for i in range(100)]
+_SQ = [i * i << 1 for i in range(100)]
 
 def is_goldbach(n):
     res = False
     for i in range(100):
-        t = n - sq[i]
+        t = n - _SQ[i]
         if t < 2: break
         if is_prime(t):
             res = True
@@ -16,8 +20,8 @@ def is_goldbach(n):
 
 def pe46():
     """
-    What is the smallest odd composite
-    that cannot be written as the sum of a prime and twice a square?
+    >>> pe46()
+    5777
     """
     limit = 10000
     res = False
@@ -28,4 +32,5 @@ def pe46():
     return res
 
 if __name__ == "__main__":
-    print(pe46())
+    import doctest
+    doctest.testmod()

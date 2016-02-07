@@ -7,8 +7,6 @@ whose values do not exceed four million,
 find the sum of the even-valued terms.
 """
 
-from __future__ import print_function
-
 def pe2(limit=4000000):
     """
     Sum of the even-valued Fibonacci sequence

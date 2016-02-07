@@ -1,26 +1,25 @@
 #!/usr/bin/env python
+"""
+What is the sum of the digits of the number 2**1000?
+"""
 
-from sys import argv
 from utils import sod
 
 def pe16(n=1000):
     """
-    What is the sum of the digits of the number 2**1000?
+    >>> pe16()
+    1366
     """
     return sod(2**n)
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            n = int(argv[1])
-        except ValueError:
-            print("  python pe16.py [integer]")
-            return
-    else:
-        n = 1000
-
-    print("sum of the digits of 2**%d is %d" % (n, pe16(n)))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe16(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

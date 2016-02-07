@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+Find arithmetic sequences, made of prime terms,
+whose four digits are permutations of each other.
+"""
 
 from itertools import permutations
 
@@ -6,8 +10,8 @@ from utils import is_prime
 
 def pe49(limit=10000):
     """
-    Find arithmetic sequences, made of prime terms,
-    whose four digits are permutations of each other.
+    >>> pe49()
+    (2969, 6299, 9629)
     """
     for num in range(1111, limit):
         sn = str(num)
@@ -29,8 +33,13 @@ def pe49(limit=10000):
     return None
 
 if __name__ == "__main__":
-    ans = pe49()
-    if ans is None:
-        print("Not Found")
-    else:
-        print(ans)
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe49(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

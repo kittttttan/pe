@@ -1,17 +1,19 @@
 #!/usr/bin/env python
+"""
+Find a quadratic formula that produces the maximum number of primes
+for consecutive values of n.
+
+f(n) = n2 + an + b, where |a| < 1000 and |b| < 1000
+f(0) >= 2  =>  b >= 2
+f(1) >= 2  =>  b >= 1 - a
+"""
 
 from utils import is_prime
 
 def pe27():
     """
-    Find a quadratic formula that produces the maximum number of primes
-    for consecutive values of n.
-
-    f(n) = n2 + an + b, where |a| < 1000 and |b| < 1000
-    """
-    """
-    f(0) >= 2    =>   b >= 2
-    f(1) >= 2    =>   b >= 1 - a
+    >>> pe27()
+    (-59231, (-61, 971, 71))
     """
     m = (0, 0, 0)
     for a in range(-999, 1000):
@@ -29,4 +31,5 @@ def pe27():
     return (m[0] * m[1], m)
 
 if __name__ == "__main__":
-    print(pe27())
+    import doctest
+    doctest.testmod()

@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+Find the sum of all pandigital numbers
+with an unusual sub-string divisibility property.
+"""
 
 from itertools import permutations
 
@@ -6,12 +10,12 @@ from utils import list_num
 
 def pe43():
     """
-    Find the sum of all pandigital numbers
-    with an unusual sub-string divisibility property.
+    >>> pe43()
+    [1406357289, 1430952867, 1460357289, 4106357289, 4130952867, 4160357289]
     """
     # s = 0
     ps = []
-    for perm in permutations((i for i in range(10) if i != 5)):
+    for perm in permutations(i for i in range(10) if i != 5):
         if perm[3] & 1: continue
         perm = list(perm)
         perm.insert(5, 5)
@@ -27,4 +31,5 @@ def pe43():
     return ps
 
 if __name__ == "__main__":
-    print(pe43())
+    import doctest
+    doctest.testmod()

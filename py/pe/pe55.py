@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+How many Lychrel numbers are there below ten-thousand?
+"""
 
 def is_lychrel(n):
     ss = str(n)[::-1]
@@ -12,9 +15,19 @@ def is_lychrel(n):
 
 def pe55(limit=10000):
     """
-    How many Lychrel numbers are there below ten-thousand?
+    >>> pe55()
+    249
     """
     return sum(1 for i in range(limit) if is_lychrel(i))
 
 if __name__ == "__main__":
-    print(pe55())
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe55(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

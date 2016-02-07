@@ -1,11 +1,13 @@
 #!/usr/bin/env python
-
-from sys import argv
+"""
+What is the millionth lexicographic permutation of the digits
+0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+"""
 
 def pe24(n=999999):
     """
-    What is the millionth lexicographic permutation of the digits
-    0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+    >>> pe24()
+    '2783915460'
     """
     nums = [i for i in range(10)]
     b, t = [], 1
@@ -19,18 +21,14 @@ def pe24(n=999999):
     res.append(str(nums[0]))
     return ''.join(res)
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            n = int(argv[1])
-        except ValueError:
-            print("  python pe24.py [integer]")
-            return
-    else:
-        n = 999999
-
-    print(pe24(n))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe24(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass

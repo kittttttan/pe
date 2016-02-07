@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+What is the largest n-digit pandigital prime that exists?
+"""
 
 from itertools import permutations
 
@@ -6,7 +9,8 @@ from utils import is_prime2, list_num
 
 def pe41():
     """
-    What is the largest n-digit pandigital prime that exists?
+    >>> pe41()
+    7652413
     """
     for perm in permutations(range(7, 0, -1)):
         n = list_num(perm)
@@ -15,8 +19,5 @@ def pe41():
     return -1
 
 if __name__ == "__main__":
-    ans = pe41()
-    if ans < 0:
-        print("Not Found")
-    else:
-        print(ans)
+    import doctest
+    doctest.testmod()

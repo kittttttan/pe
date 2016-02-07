@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-
-from sys import argv
+"""
+How many hands did player one win in the game of poker?
+"""
 
 value = { '2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,
         'T':10,'J':11,'Q':12,'K':13,'A':14 }
@@ -78,9 +79,10 @@ def rank(hand):
 
     return 0
 
-def pe54(fname="../res/pe54.txt"):
+def pe54(fname="../../res/pe54.txt"):
     """
-    How many hands did player one win in the game of poker?
+    >>> pe54()
+    376
     """
     count = 0
     for hand in open(fname):
@@ -91,19 +93,6 @@ def pe54(fname="../res/pe54.txt"):
             count += 1
     return count
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        fname = argv[1]
-    else:
-        fname = "../res/pe54.txt"
-
-    try:
-        print(pe54(fname))
-    except FileNotFoundError:
-        print("""file not found: %s
-
-  python pe54.py [filepath]""" % fname)
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()

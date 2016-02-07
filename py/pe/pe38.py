@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+"""
+What is the largest 1 to 9 pandigital
+that can be formed by multiplying a fixed number by 1, 2, 3, ... ?
+"""
 
 def pand(n):
     p = ''
@@ -15,8 +19,8 @@ def pand(n):
 
 def pe38():
     """
-    What is the largest 1 to 9 pandigital
-    that can be formed by multiplying a fixed number by 1, 2, 3, ... ?
+    >>> pe38()
+    932718654
     """
     m = 0
     for n in range(1, 10000):
@@ -26,4 +30,5 @@ def pe38():
     return m
 
 if __name__ == "__main__":
-    print(pe38())
+    import doctest
+    doctest.testmod()

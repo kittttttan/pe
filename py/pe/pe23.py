@@ -1,12 +1,15 @@
 #!/usr/bin/env python
+"""
+Find the sum of all the positive integers
+which cannot be written as the sum of two abundant numbers.
+"""
 
 from utils import spd
-from sys import argv
 
 def pe23(limit=28123):
     """
-    Find the sum of all the positive integers
-    which cannot be written as the sum of two abundant numbers.
+    >>> pe23()
+    4179871
     """
     s = 0
     abn = set()
@@ -17,18 +20,14 @@ def pe23(limit=28123):
             s += n
     return s
 
-def main():
-    argc = len(argv)
-    if argc > 1:
-        try:
-            n = int(argv[1])
-        except ValueError:
-            print("  python pe23.py [integer]")
-            return
-    else:
-        n = 28123
-
-    print(pe23(n))
-
 if __name__ == "__main__":
-    main()
+    import doctest
+    doctest.testmod()
+
+    try:
+        while True:
+            s = input('> ')
+            n = int(s)
+            print(pe23(n))
+    except (SyntaxError, EOFError, KeyboardInterrupt, NameError):
+        pass
