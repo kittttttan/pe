@@ -60,7 +60,7 @@ static void help() {
 }
 
 int main(int argc, char** argv) {
-  int n;
+  unsigned n;
 
   if (argc > 1) {
     if (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")) {
@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
   while (1) {
     printf("Problem: ");
     
-    if (scanf("%d", &n) != 1) {
+    if (scanf("%u", &n) != 1) {
       scanf("%*s");
       puts("Input Number. Below 0 to exit.");
     } else {

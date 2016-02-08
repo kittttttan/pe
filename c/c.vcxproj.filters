@@ -24,9 +24,6 @@
     <ClCompile Include="src\palindrome.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\pe.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\pe1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,6 +94,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\spd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\runner.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -182,5 +182,28 @@
     <ClInclude Include="include\spd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\res\pe8.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe11.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe13.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe18.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe22.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe42.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\res\pe54.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -7,10 +7,10 @@
  * @param[in] n
  * @return 
  */
-int is_palindrome(int n) {
-  int ds[10], i, j;
-
-  i = j = 0;
+bool is_palindrome(uint32_t n) {
+  uint32_t ds[10];
+  uint32_t i = 0;
+  uint32_t j = 0;
   while (n) {
     ds[i++] = n % 10;
     n /= 10;
@@ -18,9 +18,9 @@ int is_palindrome(int n) {
 
   while (i > j) {
     if (ds[--i] != ds[j++]) {
-      return 0;
+      return false;
     }
   }
 
-  return 1;
+  return true;
 }

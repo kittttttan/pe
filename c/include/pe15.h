@@ -1,7 +1,6 @@
-#ifndef PE15_H_
-#define PE15_H_
+#pragma once
 
-void pe15(int m, int n);
+#include <stdint.h>
+
+void pe15(uint32_t m, uint32_t n);
 int pe15_main(void);
-
-#endif /* PE15_H_ */

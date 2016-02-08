@@ -1,7 +1,6 @@
-#ifndef PE2_H_
-#define PE2_H_
+#pragma once
 
-void pe2(unsigned long n);
+#include <stdint.h>
+
+void pe2(uint32_t n);
 int pe2_main(void);
-
-#endif /* PE2_H_ */

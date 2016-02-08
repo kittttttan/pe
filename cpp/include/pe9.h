@@ -1,6 +1,3 @@
-#ifndef PE9_H_
-#define PE9_H_
+#pragma once
 
 int pe9(int n);
-
-#endif /* PE9_H_ */

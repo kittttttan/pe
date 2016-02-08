@@ -1,7 +1,6 @@
-#ifndef PE5_H_
-#define PE5_H_
+#pragma once
 
-void pe5(unsigned long n);
+#include <stdint.h>
+
+void pe5(uint32_t n);
 int pe5_main(void);
-
-#endif /* PE5_H_ */

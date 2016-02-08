@@ -1,6 +1,3 @@
-#ifndef PALINDROME_H_
-#define PALINDROME_H_
+#pragma once
 
 int is_palindrome(int n);
-
-#endif /* PALINDROME_H_ */

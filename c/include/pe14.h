@@ -1,8 +1,7 @@
-#ifndef PE14_H_
-#define PE14_H_
+#pragma once
 
-unsigned long count(unsigned long n);
-void pe14(unsigned long begin, unsigned long limit);
+#include <stdint.h>
+
+uint32_t count(uint32_t n);
+void pe14(uint32_t begin, uint32_t limit);
 int pe14_main(void);
-
-#endif /* PE14_H_ */

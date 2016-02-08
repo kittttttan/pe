@@ -1,9 +1,10 @@
-#ifndef PRIME_H_
-#define PRIME_H_
+#pragma once
 
-int sieve(int *p, int l);
-int sieve_below(int *p, int limit);
-int mod_math_pow(int base, int power, int mod);
-int mrpt(int n, int i);
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 
-#endif /* PRIME_H_ */
+size_t sieve(uint32_t *p, size_t l);
+size_t sieve_below(uint32_t *p, uint32_t limit);
+uint32_t mod_math_pow(uint32_t base, uint32_t power, uint32_t mod);
+bool mrpt(uint32_t n, uint32_t i);

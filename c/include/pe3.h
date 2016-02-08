@@ -1,7 +1,6 @@
-#ifndef PE3_H_
-#define PE3_H_
+#pragma once
 
-void pe3(unsigned long n);
+#include <stdint.h>
+
+void pe3(uint32_t n);
 int pe3_main(void);
-
-#endif /* PE3_H_ */

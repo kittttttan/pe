@@ -1,8 +1,7 @@
-#ifndef PE1_H_
-#define PE1_H_
+#pragma once
 
-void pe1(unsigned long n);
-void pe1_loop(unsigned long n);
+#include <stdint.h>
+
+void pe1(uint32_t n);
+void pe1_loop(uint32_t n);
 int pe1_main(void);
-
-#endif /* PE1_H_ */

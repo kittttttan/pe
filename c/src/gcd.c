@@ -3,20 +3,18 @@
  */
 #include <gcd.h>
 
-#include <assert.h>
-
 /*
  * Greatest Common Divisor
  * @param[in] a
  * @param[in] b
  * @return 
  */
-unsigned long gcd(unsigned long a, unsigned long b) {
-  unsigned long c;
-
-  assert(b != 0);
+uint32_t gcd(uint32_t a, uint32_t b) {
+  if (b == 0) {
+    return a;
+  }
   for (;;) {
-    c = a % b;
+    uint32_t c = a % b;
     if (!c) { break; }
     a = b;
     b = c;
@@ -31,11 +29,11 @@ unsigned long gcd(unsigned long a, unsigned long b) {
  * @param[in] b
  * @return 
  */
-unsigned long lcm(unsigned long a, unsigned long b) {
-  unsigned long c;
-
-  c = gcd(a, b);
+uint32_t lcm(uint32_t a, uint32_t b) {
+  uint32_t c = gcd(a, b);
+  if (c == 0) {
+    return 0;
+  }
   
-  assert(c != 0);
   return a * b / c;
 }

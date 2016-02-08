@@ -1,11 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe12.h>
 #include <divs.h>
-#include <stdio.h>
-#include <math.h>
 
-void pe12(unsigned long n) {
-  unsigned long i, c, t;
+#include <inttypes.h>
+#include <math.h>
+#include <stdio.h>
+
+void pe12(uint32_t n) {
+  uint32_t i, c, t;
 
   t = 1;
   i = 2;
@@ -13,15 +15,15 @@ void pe12(unsigned long n) {
     t += i++;
   }
 
-  printf("%lu\n", t);
+  printf("%" PRIu32 "\n", t);
 }
 
 int pe12_main(void) {
-  unsigned long n;
+  uint32_t n;
 
   while (1) {
     printf("below: ");
-    if (scanf("%lu", &n) != 1) {
+    if (scanf("%" PRIu32, &n) != 1) {
       scanf("%*s");
       puts("Input Number.");
     } else {

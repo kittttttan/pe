@@ -1,30 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe2.h>
+
+#include <inttypes.h>
 #include <stdio.h>
 
-void pe2(unsigned long n) {
-  unsigned long a, b, t, sum;
-
-  a = b = 1;
-  sum = 0;
+void pe2(uint32_t n) {
+  uint32_t a = 1;
+  uint32_t b = 1;
+  uint32_t sum = 0;
   while (a < n) {
     if ((a & 1) == 0) {
       sum += a;
     }
-    t = a;
+    uint32_t t = a;
     a += b;
     b = t;
   }
 
-  printf("%lu below %lu\n", sum, n);
+  printf("%" PRIu32 " below %" PRIu32 "\n", sum, n);
 }
 
 int pe2_main(void) {
-  unsigned long n;
+  uint32_t n;
 
   while (1) {
     printf("below: ");
-    if (scanf("%lu", &n) != 1) {
+    if (scanf("%" PRIu32, &n) != 1) {
       scanf("%*s");
       puts("Input Number.");
     } else {

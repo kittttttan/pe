@@ -1,28 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe7.h>
 #include <prime.h>
+
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int pe7(int n) {
-  int *ps;
-
+size_t pe7(size_t n) {
   if (n < 1) {
     return 0;
   }
 
-  ps = (int*)malloc(sizeof(int) * n);
+  uint32_t *ps = (uint32_t*)calloc(sizeof(uint32_t), n);
   if (!ps) {
     fprintf(stderr, "%s:%d: failed malloc\n", __FILE__, __LINE__);
     return 0;
   }
 
-  if (sieve(ps, n)) {
-    printf("%dth prime is %d\n", n, ps[n - 1]);
+  size_t res = sieve(ps, n);
+  if (res) {
+    printf("%zuth prime is %" PRIu32 "\n", n, ps[n - 1]);
   }
   free(ps);
 
-  return 1;
+  return res;
 }
 
 int pe7_main(void) {
@@ -30,7 +31,7 @@ int pe7_main(void) {
   
   while (1) {
     printf("prime index of: ");
-    if (scanf("%d", &n) != 1) {
+    if (scanf("%zu", &n) != 1) {
       scanf("%*s");
       puts("Input Number.");
     } else {

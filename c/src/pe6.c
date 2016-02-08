@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe6.h>
+
 #include <stdio.h>
 
 void pe6(int n) {

@@ -2,7 +2,7 @@
 
 #include <math.h>
 
-enum { MAX_DIVS_CNT = 256 };
+enum { MAX_DIVS_CNT = 256u };
 
 /*
  * get divisors
@@ -10,11 +10,9 @@ enum { MAX_DIVS_CNT = 256 };
  * @param[in]  n max length
  * @return length
  */
-size_t get_divs(unsigned long *p, unsigned long n) {
-  size_t i, len, limit;
-
-  len = 0;
-  limit = (size_t)sqrt(n);
+size_t get_divs(uint32_t *p, uint32_t n) {
+  size_t len = 0;
+  size_t limit = (size_t)sqrt(n);
   while ((n & 1) == 0) {
     p[len++] = 2;
     n >>= 1;
@@ -23,7 +21,7 @@ size_t get_divs(unsigned long *p, unsigned long n) {
     return len;
   }
 
-  i = 3;
+  size_t i = 3;
   while (i <= limit) {
     if (n % i == 0) {
       p[len++] = i;
@@ -47,11 +45,7 @@ size_t get_divs(unsigned long *p, unsigned long n) {
  * @param[in] n
  * @return 
  */
-unsigned long cnt_divs(unsigned long n) {
-  unsigned long p[MAX_DIVS_CNT];
-  size_t i, l;
-  unsigned long t, c;
-
+uint32_t cnt_divs(uint32_t n) {
   if (!n) {
     return 0;
   }
@@ -62,10 +56,11 @@ unsigned long cnt_divs(unsigned long n) {
     return 2;
   }
 
-  t = 0;
-  c = 1;
-  l = get_divs(p, n);
-  for (i = 0; i < l; ++i) {
+  uint32_t p[MAX_DIVS_CNT];
+  uint32_t t = 0;
+  uint32_t c = 1;
+  size_t l = get_divs(p, n);
+  for (size_t i = 0; i < l; ++i) {
     if (i + 1 < l && p[i] == p[i + 1]) {
       ++t;
     } else {

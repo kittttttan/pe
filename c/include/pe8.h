@@ -1,7 +1,4 @@
-#ifndef PE8_H_
-#define PE8_H_
+#pragma once
 
 void pe8(int n);
 int pe8_main(void);
-
-#endif /* PE8_H_ */

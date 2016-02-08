@@ -1,7 +1,6 @@
-#ifndef PE7_H_
-#define PE7_H_
+#pragma once
 
-int pe7(int n);
+#include <stddef.h>
+
+size_t pe7(size_t n);
 int pe7_main(void);
-
-#endif /* PE7_H_ */

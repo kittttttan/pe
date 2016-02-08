@@ -1,6 +1,5 @@
-#ifndef SPD_H_
-#define SPD_H_
+#pragma once
 
-int spd(int n);
+#include <stdint.h>
 
-#endif /* SPD_H_ */
+uint32_t spd(uint32_t n);

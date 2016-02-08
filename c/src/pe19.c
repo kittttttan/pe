@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe19.h>
+
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,11 +15,11 @@ enum {
   SAT
 };
 
-int isLeapYear(int year) {
+bool isLeapYear(uint32_t year) {
   return (year & 3) == 0 && (year % 100 || (year % 400) == 0);
 }
 
-int daysOfMonth(int year, int month) {
+uint32_t daysOfMonth(uint32_t year, uint32_t month) {
   switch (month) {
     case 2:
       return isLeapYear(year) ? 29 : 28;
@@ -31,30 +33,29 @@ int daysOfMonth(int year, int month) {
   return 31;
 }
 
-void pe19(int n) {
-  int sum = 0;
-  int dow = TUE;  // 1901-01-01 is Tuesday
-  int year;
-  int month;
-
-  for (year = 1901; year <= n; ++year) {
-    for (month = 1; month <= 12; ++month) {
+void pe19(uint32_t n) {
+  uint32_t sum = 0;
+  uint32_t dow = TUE;  // 1901-01-01 is Tuesday
+  for (uint32_t year = 1901; year <= n; ++year) {
+    for (uint32_t month = 1; month <= 12; ++month) {
       dow += daysOfMonth(year, month);
       dow %= 7;
-      if (dow == SUN) ++sum;
+      if (dow == SUN) {
+        ++sum;
+      }
     }
   }
   
-  printf("%d (1901 to %d)\n", sum, n);
+  printf("%" PRIu32 " (1901 to %" PRIu32 ")\n", sum, n);
 }
 
 int pe19_main(void) {
-  int n;
+  uint32_t n;
 
   while (1) {
     printf("1901 to: ");
     
-    if (scanf("%d", &n) != 1) {
+    if (scanf("%" PRIu32, &n) != 1) {
       scanf("%*s");
       puts("Input Number.");
     } else {

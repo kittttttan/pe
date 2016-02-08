@@ -1,6 +1,6 @@
-#ifndef PALINDROME_H_
-#define PALINDROME_H_
+#pragma once
 
-int is_palindrome(int n);
+#include <stdbool.h>
+#include <stdint.h>
 
-#endif /* PALINDROME_H_ */
+bool is_palindrome(uint32_t n);

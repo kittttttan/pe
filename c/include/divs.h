@@ -1,9 +1,7 @@
-#ifndef DIVS_H_
-#define DIVS_H_
+#pragma once
 
 #include <stddef.h>
+#include <stdint.h>
 
-size_t get_divs(unsigned long *p, unsigned long n);
-unsigned long cnt_divs(unsigned long n);
-
-#endif /* DIVS_H_ */
+size_t get_divs(uint32_t *p, uint32_t n);
+uint32_t cnt_divs(uint32_t n);

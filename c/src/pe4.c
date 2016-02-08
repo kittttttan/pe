@@ -1,15 +1,14 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe4.h>
 #include <palindrome.h>
+
 #include <stdio.h>
 
 void pe4(int first, int last) {
-  int m, x, y, xy;
-
-  m = 0;
-  for (x = first; x < last; ++x) {
-    for (y = x; y < last; ++y) {
-      xy = x * y;
+  int m = 0;
+  for (int x = first; x < last; ++x) {
+    for (int y = x; y < last; ++y) {
+      int xy = x * y;
       if (xy > m && is_palindrome(xy)) {
         m = xy;
       }

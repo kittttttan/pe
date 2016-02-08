@@ -1,7 +1,6 @@
-#ifndef GCD_H_
-#define GCD_H_
+#pragma once
 
-unsigned long gcd(unsigned long a, unsigned long b);
-unsigned long lcm(unsigned long a, unsigned long b);
+#include <stdint.h>
 
-#endif /* GCD_H_ */
+uint32_t gcd(uint32_t a, uint32_t b);
+uint32_t lcm(uint32_t a, uint32_t b);
