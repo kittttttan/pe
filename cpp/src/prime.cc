@@ -9,12 +9,6 @@
 
 using namespace std;
 
-/*
- * get prime number list with sieve algorhythm
- * @param[out] p Array for the list
- * @param[in]  l Length of the list
- * @return
- */
 uint32_t sieve(vector<uint32_t>& p, uint32_t l) {
   if (l < 1) {
     return 0;
@@ -58,12 +52,6 @@ uint32_t sieve(vector<uint32_t>& p, uint32_t l) {
   return j;
 }
 
-/*
- * get prime number list below limit
- * @param[out] p
- * @param[in]  limit
- * @return length
- */
 uint32_t sieve_below(vector<uint32_t>& p, uint32_t limit) {
   bool *s = new bool[limit + 1];
   if (!s) {
@@ -95,13 +83,6 @@ uint32_t sieve_below(vector<uint32_t>& p, uint32_t limit) {
   return j;
 }
 
-/*
- * mod_math_pow
- * @param[in] base
- * @param[in] power
- * @param[in] mod
- * @return [base]^[power] (mod [mod])
- */
 uint32_t mod_math_pow(uint32_t base, uint32_t power, uint32_t mod) {
   uint32_t result = 1;
 
@@ -116,12 +97,6 @@ uint32_t mod_math_pow(uint32_t base, uint32_t power, uint32_t mod) {
   return result;
 }
 
-/*
- * Miller-Rabin primality test
- * @param[in] n Target number
- * @param[in] i Repeat times of the test
- * @return 1 means prime
- */
 bool mrpt(uint32_t n, uint32_t i) {
   if (n == 2) {
     return true;

@@ -2,11 +2,6 @@
 
 #include <math.h>
 
-/*
- * Sum of proper divisors
- * @param[in] n
- * @return
- */
 uint32_t spd(uint32_t n) {
   uint32_t sum = 1;
   if (n < 2) {

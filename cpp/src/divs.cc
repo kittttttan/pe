@@ -5,12 +5,6 @@
 
 using namespace std;
 
-/*
- * get divisors
- * @param[out] p divisors
- * @param[in]  n max length
- * @return length
- */
 void get_divs(vector<uint32_t>* p, uint64_t n)
 {
   uint32_t limit = static_cast<uint32_t>(sqrt(n));
@@ -39,11 +33,6 @@ void get_divs(vector<uint32_t>* p, uint64_t n)
   }
 }
 
-/*
- * count divisors
- * @param[in] n
- * @return 
- */
 uint32_t cnt_divs(uint32_t n)
 {
   if (!n) {

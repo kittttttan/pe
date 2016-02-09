@@ -4,12 +4,6 @@
 
 enum { MAX_DIVS_CNT = 256u };
 
-/*
- * get divisors
- * @param[out] p divisors
- * @param[in]  n max length
- * @return length
- */
 size_t get_divs(uint32_t *p, uint32_t n) {
   size_t len = 0;
   size_t limit = (size_t)sqrt(n);
@@ -40,11 +34,6 @@ size_t get_divs(uint32_t *p, uint32_t n) {
   return len;
 }
 
-/*
- * count divisors
- * @param[in] n
- * @return 
- */
 uint32_t cnt_divs(uint32_t n) {
   if (!n) {
     return 0;
