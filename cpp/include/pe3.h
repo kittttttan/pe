@@ -1,5 +1,6 @@
 #pragma once
 
-#include <divs.h>
+#include <cstdint>
 
-void pe3(uint n);
+void pe3(uint32_t n);
+int pe3_main();

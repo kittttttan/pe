@@ -10,15 +10,17 @@ int pe6(int n)
   return n * (n + 1) * (n - 1) * (3 * n + 2) / 12;
 }
 
-int main(int argc, char** argv)
+int pe6_main()
 {
-  int n = 100;
-
-  if (argc > 1) {
-    n = atoi(argv[1]);
+  for (;;) {
+    int n = 100;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe6(n) << endl;
   }
-
-  cout << pe6(n) << endl;
 
   return 0;
 }

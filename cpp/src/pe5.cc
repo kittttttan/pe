@@ -6,26 +6,27 @@
 
 using namespace std;
 
-uint pe5(uint n)
+uint32_t pe5(uint32_t n)
 {
-  uint i, d = 1;
-
-  for (i = 2; i <= n; ++i) {
+  uint32_t d = 1;
+  for (uint32_t i = 2; i <= n; ++i) {
     d = lcm(d, i);
   }
 
   return d;
 }
 
-int main(int argc, char** argv)
+int pe5_main()
 {
-  uint n = 20;
-
-  if (argc > 1) {
-    n = strtoul(argv[1], nullptr, 0);
+  for (;;) {
+    uint32_t n = 20;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe5(n) << endl;
   }
-
-  cout << pe5(n) << endl;
 
   return 0;
 }

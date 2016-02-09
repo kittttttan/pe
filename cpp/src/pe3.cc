@@ -6,29 +6,31 @@
 
 using namespace std;
 
-int main(int argc, char** argv)
+int pe3_main()
 {
-  uint64 n = 600851475143ULL;
-  
-  if (argc > 1) {
-    n = strtoul(argv[1], nullptr, 0);
-  }
+  for (;;) {
+    uint64_t n = 600851475143ULL;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
 
-  vector<uint> vec;
+    vector<uint32_t> vec;
+    get_divs(&vec, n);
+    cout << n << endl;
 
-  get_divs(&vec, n);
-  cout << n << endl;
-  
-  // max
-  //if (vec.empty()) {
-  //  cout << 1 << endl;
-  //} else {
-  //  cout << vec.back() << endl;
-  //}
-  
-  // all
-  for (uint& v: vec) {
-    cout << v << endl;
+    // max
+    //if (vec.empty()) {
+    //  cout << 1 << endl;
+    //} else {
+    //  cout << vec.back() << endl;
+    //}
+
+    // all
+    for (uint32_t& v : vec) {
+      cout << v << endl;
+    }
   }
 
   return 0;

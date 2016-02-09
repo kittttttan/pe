@@ -6,15 +6,15 @@
 
 using namespace std;
 
-uint pe11(const char* fname)
+uint32_t pe11(const char* fname)
 {
-  int i, j, k, n;
   int nums[20][20];
-
-  i = j = 0;
-  n = -1;
+  int i = 0;
+  int j = 0;
+  int n = -1;
   ifstream ifs(fname, ifstream::in);
   char c = ifs.get();
+
   while (ifs.good()) {
     if (c >= '0' && c <= '9') {
       if (n == -1) {
@@ -36,11 +36,14 @@ uint pe11(const char* fname)
   }
   ifs.close();
 
-  uint ud, lr, d0, d1, m = 0;
+  uint32_t m = 0;
   for (i = 0; i < 20; ++i) {
     for (j = 0; j < 20; ++j) {
-      ud = lr = d0 = d1 = 1;
-      for (k = 0; k < 4; ++k) {
+      uint32_t ud = 1;
+      uint32_t lr = 1;
+      uint32_t d0 = 1;
+      uint32_t d1 = 1;
+      for (int k = 0; k < 4; ++k) {
         if (i < 16) {
           lr *= nums[i + k][j];
         } else {
@@ -76,13 +79,9 @@ uint pe11(const char* fname)
   return m;
 }
 
-int main(int argc, char** argv)
+int pe11_main()
 {
   string fname = "../res/pe11.txt";
-
-  if (argc > 1) {
-    fname = argv[1];
-  }
 
   cout << pe11(fname.c_str()) << endl;
 

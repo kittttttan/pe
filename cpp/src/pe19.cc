@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe19.h>
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <cstdio>
+#include <cstdlib>
 
 enum {
   SUN,
@@ -13,7 +14,7 @@ enum {
   SAT
 };
 
-int isLeapYear(int year) {
+bool isLeapYear(int year) {
   return (year & 3) == 0 && (year % 100 || (year % 400) == 0);
 }
 

@@ -3,17 +3,16 @@
 #include <cstdlib>
 #include <iostream>
 
-uint pe2(uint n)
+uint32_t pe2(uint32_t n)
 {
-  uint a, b, t, sum;
-
-  a = b = 1;
-  sum = 0;
+  uint32_t a = 1;
+  uint32_t b = 1;
+  uint32_t sum = 0;
   while (a < n) {
     if ((a & 1) == 0) {
       sum += a;
     }
-    t = a;
+    uint32_t t = a;
     a += b;
     b = t;
   }
@@ -21,17 +20,19 @@ uint pe2(uint n)
   return sum;
 }
 
-int main(int argc, char** argv)
+int pe2_main()
 {
   using namespace std;
   
-  uint n = 4000000;
-
-  if (argc > 1) {
-    n = strtoul(argv[1], nullptr, 0);
+  for (;;) {
+    uint32_t n = 4000000;
+    cout << "below: ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe2(n) << endl;
   }
-  
-  cout << pe2(n) << endl;
 
   return 0;
 }

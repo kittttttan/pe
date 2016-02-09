@@ -1,5 +1,6 @@
 #pragma once
 
-typedef unsigned long uint;
+#include <cstdint>
 
-uint pe11(const char* fname);
+uint32_t pe11(const char* fname);
+int pe11_main();

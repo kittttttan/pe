@@ -25,12 +25,11 @@ int pe8(const char* fname, int n)
   }
   ifs.close();
   
-  int t, j;
   int m = 0;
   const size_t size = digits.size();
   for (size_t i = 0; i < size - n + 1; ++i) {
-    t = 1;
-    for (j = 0; j < n; ++j) {
+    int t = 1;
+    for (int j = 0; j < n; ++j) {
       t *= digits[i + j];
     }
     if (m < t) {
@@ -41,18 +40,19 @@ int pe8(const char* fname, int n)
   return m;
 }
 
-int main(int argc, char** argv)
+int pe8_main()
 {
   string fname = "../../res/pe8.txt";
-  int n = 5;
 
-  if (argc > 1) {
-    fname = argv[1];
+  for (;;) {
+    int n = 5;
+    cout << "below: ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe8(fname.c_str(), n) << endl;
   }
-  if (argc > 2) {
-    n = atoi(argv[2]);
-  }
-  cout << pe8(fname.c_str(), n) << endl;
 
   return 0;
 }

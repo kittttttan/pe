@@ -1,6 +1,7 @@
 #pragma once
 
-typedef unsigned long uint;
+#include <cstdint>
 
-uint count(uint n);
-void pe14(uint& index, uint& cnt, uint begin, uint limit);
+uint32_t count(uint32_t n);
+void pe14(uint32_t& index, uint32_t& cnt, uint32_t begin, uint32_t limit);
+int pe14_main();

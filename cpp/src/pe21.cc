@@ -1,41 +1,38 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe21.h>
 #include <spd.h>
-#include <stdio.h>
-#include <string.h>
 
-static int debug_on = 0;
+#include <iostream>
 
-void pe21(int n) {
-  int i;
-  int t;
-  int sum = 0;
+using namespace std;
+
+static bool debug_on = false;
+
+void pe21(uint32_t n) {
+  uint32_t sum = 0;
   
-  for (i = 2; i < n + 1; ++i) {
-    t = spd(i);
+  for (uint32_t i = 2; i < n + 1; ++i) {
+    uint32_t t = spd(i);
     if (i < t && i == spd(t)) {
-      if (debug_on) printf("(%d, %d)\n", i, t);
+      if (debug_on) {
+        cout << "(" << i << ", " << t << ")" << endl;
+      }
       sum += i + t;
     }
   }
   
-  printf("%d\n", sum);
+  cout << sum << endl;
 }
 
 int pe21_main(void) {
-  int n;
-
-  while (1) {
-    puts("below: ");
-    if (scanf("%d", &n) != 1) {
-      scanf("%*s");
-      puts("Input Number.");
-    } else {
-      if (!n) {
-        break;
-      }
-      pe21(n);
+  for (;;) {
+    uint32_t n;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
     }
+    pe21(n);
   }
 
   return 0;

@@ -7,11 +7,11 @@
 
 using namespace std;
 
-uint pe12(uint n)
+uint32_t pe12(uint32_t n)
 {
-  uint c;
-  uint t = 1;
-  uint i = 2;
+  uint32_t c;
+  uint32_t t = 1;
+  uint32_t i = 2;
   while ((c = cnt_divs(t)) < n) {
     t += i++;
   }
@@ -19,15 +19,17 @@ uint pe12(uint n)
   return t;
 }
 
-int main(int argc, char** argv)
+int pe12_main()
 {
-  uint n = 500;
-
-  if (argc > 1) {
-    n = strtoul(argv[1], nullptr, 0);
+  for (;;) {
+    uint32_t n = 500;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe12(n) << endl;
   }
-
-  cout << pe12(n) << endl;
 
   return 0;
 }

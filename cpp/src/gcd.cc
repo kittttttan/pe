@@ -3,21 +3,20 @@
  */
 #include <gcd.h>
 
-#include <cassert>
-
 /*
  * Greatest Common Divisor
  * @param[in] a
  * @param[in] b
  * @return 
  */
-uint gcd(uint a, uint b)
+uint32_t gcd(uint32_t a, uint32_t b)
 {
-  uint c;
+  if (b == 0) {
+    return 0;
+  }
 
-  assert(b != 0);
   for (;;) {
-    c = a % b;
+    uint32_t c = a % b;
     if (!c) { break; }
     a = b;
     b = c;
@@ -32,12 +31,12 @@ uint gcd(uint a, uint b)
  * @param[in] b
  * @return 
  */
-uint lcm(uint a, uint b)
+uint32_t lcm(uint32_t a, uint32_t b)
 {
-  uint c;
-
-  c = gcd(a, b);
+  uint32_t c = gcd(a, b);
+  if (c == 0) {
+    return 0;
+  }
   
-  assert(c != 0);
   return a * b / c;
 }

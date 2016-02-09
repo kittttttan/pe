@@ -27,7 +27,7 @@ size_t pe7(size_t n) {
 }
 
 int pe7_main(void) {
-  int n;
+  size_t n;
   
   while (1) {
     printf("prime index of: ");

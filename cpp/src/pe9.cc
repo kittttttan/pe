@@ -5,12 +5,12 @@
 
 using namespace std;
 
-int pe9(int n)
+uint32_t pe9(uint32_t n)
 {
-  int l = (n >> 1) + 1;
-  for (int x = 1; x < l; ++x) {
-    for (int y = x; y < l; ++y) {
-      int z = n - x - y;
+  uint32_t l = (n >> 1) + 1;
+  for (uint32_t x = 1; x < l; ++x) {
+    for (uint32_t y = x; y < l; ++y) {
+      uint32_t z = n - x - y;
       if (x * x + y * y == z * z) {
         return x * y * z;
       }
@@ -20,15 +20,17 @@ int pe9(int n)
   return 1;
 }
 
-int main(int argc, char** argv)
+int pe9_main()
 {
-  int n = 1000;
-
-  if (argc > 1) {
-    n = atoi(argv[1]);
+  for (;;) {
+    uint32_t n = 1000;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe9(n) << endl;
   }
-
-  cout << pe9(n) << endl;
 
   return 0;
 }

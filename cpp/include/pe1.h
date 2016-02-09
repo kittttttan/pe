@@ -1,6 +1,7 @@
 #pragma once
 
-typedef unsigned long uint;
+#include <cstdint>
 
-uint pe1(uint n);
-uint pe1_loop(uint n);
+uint32_t pe1(uint32_t n);
+uint32_t pe1_loop(uint32_t n);
+int pe1_main();

@@ -11,25 +11,17 @@ static int compare(const void* a, const void* b) {
 }
 
 void pe22(const char* filepath) {
-  FILE* fp;
-  int c;
-  int worth = 0;
-  unsigned long score = 0;
-  char* cp;
-  char* text;
-  char** names;
-  size_t i, j;
-  size_t size = 0;
-  size_t name_count = 1;
-
   // file open
-  fp = fopen(filepath, "rb");
+  FILE *fp = fopen(filepath, "rb");
   if (!fp) {
     fprintf(stderr, "failed to open %s\n", filepath);
     return;
   }
-  
+
   // count
+  int c;
+  size_t size = 0;
+  size_t name_count = 1;
   while ((c = getc(fp)) != EOF) {
     if (c == ',') {
       ++size;
@@ -39,13 +31,17 @@ void pe22(const char* filepath) {
     }
   }
   //printf("%d %d\n", size, name_count);
-  
+
   // read names
-  text = (char*)malloc(size + 1);
-  if (!text) { fprintf(stderr, "error\n"); return; }
-  
+  char *text = (char*)malloc(size + 1);
+  if (!text) {
+    fprintf(stderr, "error\n");
+    fclose(fp);
+    return;
+  }
+
   fseek(fp, 0, SEEK_SET);
-  i = 0;
+  size_t i = 0;
   while ((c = getc(fp)) != EOF) {
     if ((c == ',') || ('A' <= c && c <= 'Z')) {
       text[i] = c;
@@ -53,31 +49,32 @@ void pe22(const char* filepath) {
     }
   }
   text[i] = '\0';
-  
+
   // file close
   if (ferror(fp)) {
     fprintf(stderr, "file error.");
     clearerr(fp);
   }
   fclose(fp);
-  
+
   // string array
-  cp = text;
-  names = (char**)malloc(name_count * sizeof(char*));
+  char *cp = text;
+  char **names = (char**)malloc(name_count * sizeof(char*));
   for (i = 0; i < size; ++i) {
     if ((names[i] = strtok(cp, ",")) == NULL) {
       break;
     }
     cp = NULL;
   }
-  
+
   // sort
   qsort(names, name_count, sizeof(const char *), compare);
-  
+
   // calculate score
+  unsigned long score = 0;
   for (i = 0; i < name_count; ++i) {
-    j = 0;
-    worth = 0;
+    size_t j = 0;
+    int worth = 0;
     while ((c = names[i][j]) != '\0') {
       worth += c - 'A' + 1;
       ++j;
@@ -85,9 +82,9 @@ void pe22(const char* filepath) {
     score += (i + 1) * worth;
     //printf("%s %d\n", names[i], worth);
   }
-  
+
   printf("%lu\n", score);
-  
+
   for (i = 0; i < name_count; ++i) {
     free(names[i]);
   }

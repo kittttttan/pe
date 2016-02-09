@@ -1,6 +1,6 @@
 #pragma once
 
-typedef unsigned long uint;
+#include <cstdint>
 
-uint gcd(uint a, uint b);
-uint lcm(uint a, uint b);
+uint32_t gcd(uint32_t a, uint32_t b);
+uint32_t lcm(uint32_t a, uint32_t b);

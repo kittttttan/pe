@@ -7,18 +7,16 @@ enum { DIGITS_LENGTH = 1000u };
 
 void pe8(int n) {
   static const char* FILENAME = "pe8.txt";
-  int digits[DIGITS_LENGTH];
 
-  int c, m, t, i, j;
-  FILE *fp;
-
-  fp = fopen(FILENAME, "r");
+  FILE *fp = fopen(FILENAME, "r");
   if (!fp) {
     fprintf(stderr, "%s:%d: Can't open %s\n", __FILE__, __LINE__, FILENAME);
     return;
   }
 
-  i = 0;
+  int i = 0;
+  int c;
+  int digits[DIGITS_LENGTH];
   while ((c = getc(fp)) != EOF) {
     if (c >= '0' && c <= '9') {
       if (i >= DIGITS_LENGTH) {
@@ -35,11 +33,11 @@ void pe8(int n) {
   }
   fclose(fp);
 
-  m = 0;
+  int m = 0;
   if (n > 0 && n < 1000) {
     for (i = 0; i < 1000 - n + 1; ++i) {
-      t = 1;
-      for (j = 0; j < n; ++j) {
+      int t = 1;
+      for (int j = 0; j < n; ++j) {
         t *= digits[i + j];
       }
       if (m < t) {

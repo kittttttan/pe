@@ -1,7 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe12.h>
-#include <stdio.h>
-#include <stdlib.h>
+
+#include <cstdio>
+#include <cstdlib>
 
 static const char DEFAULT_FILE_NAME[] = "pe18.txt";
 
@@ -11,31 +12,25 @@ static const char DEFAULT_FILE_NAME[] = "pe18.txt";
 
 void pe18(const char* filepath) {
   static const int SIZE = 15;
-
-  FILE* fp;
-  int c;
-  int i, j;
-  int t;
-  int x, y;
-  int** s;
-  int invalid = 0;
   
-  fp = fopen(filepath, "r");
+  FILE *fp = fopen(filepath, "r");
   if (!fp) {
     fprintf(stderr, "failed to open %s\n", filepath);
     return;
   }
   
   // init array
-  s = (int**)malloc(sizeof(int*) * SIZE);
-  for (i = 0; i < SIZE; ++i) {
-    s[i] = (int*)malloc(sizeof(int) * (i + 1));
+  int **s = (int**)calloc(sizeof(int*), SIZE);
+  for (size_t i = 0; i < SIZE; ++i) {
+    s[i] = (int*)calloc(sizeof(int), i + 1);
   }
   
-  x = y = 0;
-  t = 0;
-  
   // parse
+  int c;
+  int invalid = 0;
+  int x = 0;
+  int y = 0;
+  int t = 0;
   while ((c = getc(fp)) != EOF) {
     if (c >= '0' && c <= '9') {
       t = 10 * t + c - '0';
@@ -75,8 +70,8 @@ void pe18(const char* filepath) {
     fclose(fp);
     
     // sum
-    for (i = 0; i < SIZE - 1; ++i) {
-      for (j = 0; j < SIZE - i - 1; ++j) {
+    for (size_t i = 0; i < SIZE - 1; ++i) {
+      for (size_t j = 0; j < SIZE - i - 1; ++j) {
         s[SIZE - 1 - i - 1][j] +=
             MAX(s[SIZE - 1 - i][j], s[SIZE - 1 - i][j + 1]);
       }
@@ -85,7 +80,7 @@ void pe18(const char* filepath) {
   }
   
   // free array
-  for (i = 0; i < SIZE; ++i) {
+  for (size_t i = 0; i < SIZE; ++i) {
     free(s[i]);
   }
   free(s);

@@ -96,9 +96,6 @@
     <ClCompile Include="src\spd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\runner.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\divs.h">

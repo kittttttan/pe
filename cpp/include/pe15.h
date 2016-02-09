@@ -1,5 +1,6 @@
 #pragma once
 
-#include <divs.h>
+#include <cstdint>
 
-uint64 pe15(int m, int n);
+uint64_t pe15(uint32_t m, uint32_t n);
+int pe15_main();

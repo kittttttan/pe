@@ -1,3 +1,5 @@
 #pragma once
 
-int is_palindrome(int n);
+#include <cstdint>
+
+bool is_palindrome(uint32_t n);

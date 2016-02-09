@@ -37,15 +37,11 @@ void pe13(const char* fname, vector<char>& res)
   }
 }
 
-int main(int argc, char** argv)
+int pe13_main()
 {
   string fname = "../res/pe13.txt";
   vector<char> res;
   res.reserve(128);
-
-  if (argc > 1) {
-    fname = argv[1];
-  }
 
   pe13(fname.c_str(), res);
 

@@ -7,24 +7,18 @@
 enum { MAX_ORDER = 256 };
 
 void pe20(int n) {
-  static int bits[MAX_ORDER];
-  int i;
-  int j;
-  int sum = 0;
-  
-  /* init: set 0...01 */
-  memset(bits, 0, sizeof(int) * MAX_ORDER);
+  static int bits[MAX_ORDER] = {0};
   bits[0] = 1;
 
   if (n > 1) {
-    for (j = 2; j <= n; ++j) {
+    for (int j = 2; j <= n; ++j) {
       /* multiply */
-      for (i = 0; i < MAX_ORDER; ++i) {
+      for (int i = 0; i < MAX_ORDER; ++i) {
         bits[i] *= j;
       }
       
       /* ceil */
-      for (i = 0; i < MAX_ORDER - 1; ++i) {
+      for (int i = 0; i < MAX_ORDER - 1; ++i) {
         bits[i + 1] += bits[i] / 10000;
         bits[i] %= 10000;
       }
@@ -37,7 +31,7 @@ void pe20(int n) {
     }
   }
   
-  i = MAX_ORDER;
+  int i = MAX_ORDER;
   /* ignore following zeros */
   while (i--) {
     if (bits[i]) break;
@@ -46,6 +40,7 @@ void pe20(int n) {
   /* print for debug */
   printf("%d! = ", n);
   printf("%d", bits[i]);
+  int sum = 0;
   do {
     sum += bits[i] % 10;
   } while (bits[i] /= 10);

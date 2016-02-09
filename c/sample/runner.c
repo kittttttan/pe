@@ -1,27 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+#if _DEBUG
+#pragma comment(lib, "pe_d.lib")
+#else
+#pragma comment(lib, "pe.lib")
+#endif
 
-#include <pe1.h>
-#include <pe2.h>
-#include <pe3.h>
-#include <pe4.h>
-#include <pe5.h>
-#include <pe6.h>
-#include <pe7.h>
-#include <pe8.h>
-#include <pe9.h>
-#include <pe10.h>
-#include <pe11.h>
-#include <pe12.h>
-#include <pe13.h>
-#include <pe14.h>
-#include <pe15.h>
-#include <pe16.h>
-#include <pe17.h>
-#include <pe18.h>
-#include <pe19.h>
-#include <pe20.h>
-#include <pe21.h>
-#include <pe22.h>
+#include "runner.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,7 +51,7 @@ int main(int argc, char** argv) {
       help();
       return 0;
     }
-    
+
     n = atoi(argv[1]);
     pe(n);
     return 0;
@@ -75,11 +59,12 @@ int main(int argc, char** argv) {
 
   while (1) {
     printf("Problem: ");
-    
+
     if (scanf("%u", &n) != 1) {
       scanf("%*s");
       puts("Input Number. Below 0 to exit.");
-    } else {
+    }
+    else {
       if (n < 1) {
         break;
       }

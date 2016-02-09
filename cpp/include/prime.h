@@ -1,8 +1,9 @@
 #pragma once
 
+#include <cstdint>
 #include <vector>
 
-int sieve(std::vector<int>& p, int l);
-int sieve_below(std::vector<int>& p, int limit);
-int mod_math_pow(int base, int power, int mod);
-int mrpt(int n, int i);
+uint32_t sieve(std::vector<uint32_t>& p, uint32_t l);
+uint32_t sieve_below(std::vector<uint32_t>& p, uint32_t limit);
+uint32_t mod_math_pow(uint32_t base, uint32_t power, uint32_t mod);
+bool mrpt(uint32_t n, uint32_t i);

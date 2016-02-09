@@ -7,13 +7,13 @@
 
 using namespace std;
 
-int pe7(int n)
+uint32_t pe7(uint32_t n)
 {
   if (n < 1) {
     return 0;
   }
 
-  vector<int> ps;
+  vector<uint32_t> ps;
 
   sieve(ps, n);
   if (ps.empty()) return 0;
@@ -21,15 +21,17 @@ int pe7(int n)
   return ps.back();
 }
 
-int main(int argc, char** argv)
+int pe7_main()
 {
-  int n = 10001;
-
-  if (argc > 1) {
-    n = atoi(argv[1]);
+  for (;;) {
+    uint32_t n = 10001;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe7(n) << endl;
   }
-
-  cout << pe7(n) << endl;
 
   return 0;
 }

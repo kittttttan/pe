@@ -1,6 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe17.h>
-#include <stdio.h>
+
+#include <iostream>
+
+using namespace std;
 
 static int to20[] = {
   0, //
@@ -38,7 +41,9 @@ static int ty[] = {
 
 static int spell1(int n) {
   int a, b;
-  if (n < 20) return to20[n];
+  if (n < 20) {
+    return to20[n];
+  }
 
   a = n / 10;
   b = n % 10;
@@ -47,23 +52,29 @@ static int spell1(int n) {
 
 static int spell2(int n) {
   int h, d;
-  if (n < 100) return spell1(n);
+  if (n < 100) {
+    return spell1(n);
+  }
   
   h = n / 100;
-  d = n % 100;
-  d = spell1(d);
-  if (!d) return to20[h] + 7; // hundred
+  d = spell1(n % 100);
+  if (!d) {
+    return to20[h] + 7; // hundred
+  }
   return to20[h] + 10 + d; // hundredand
 }
 
 static int spell3(int n) {
   int t, h;
-  if (n < 1000) return spell2(n);
+  if (n < 1000) {
+    return spell2(n);
+  }
 
   t = n / 1000;
-  h = n % 1000;
-  h = spell2(h);
-  if (!h) return spell2(t) + 8; // thousand
+  h = spell2(n % 1000);
+  if (!h) {
+    return spell2(t) + 8; // thousand
+  }
   return spell2(t) + 11 + h; // thousandand
 }
 
@@ -71,7 +82,7 @@ void pe17(int n) {
   int i, s = 0;
   
   if (n > 99999) {
-    fprintf(stderr, "too large.\n");
+    cerr << "too large.\n";
     return;
   }
   
@@ -79,23 +90,18 @@ void pe17(int n) {
     s += spell3(i);
   }
   
-  printf("%d letters\n", s);
+  cout << s << " letters\n";
 }
 
 int pe17_main(void) {
-  int n;
-
-  while (1) {
-    printf("below: ");
-    if (scanf("%d", &n) != 1) {
-      scanf("%*s");
-      puts("Input Number.");
-    } else {
-      if (!n) {
-        break;
-      }
-      pe17(n);
+  for (;;) {
+    int n;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
     }
+    pe17(n);
   }
 
   return 0;

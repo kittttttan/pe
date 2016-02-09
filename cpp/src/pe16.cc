@@ -1,23 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe16.h>
-#include <stdio.h>
-#include <string.h>
 
-enum { MAX_ORDER = 128 };
+#include <iostream>
+
+using namespace std;
+
+const size_t MAX_ORDER = 128;
 
 /**
  * sum of digits for 2^n
  * @param[in] n power of 2
  */
 void pe16(int n) {
-  static int bits[MAX_ORDER];
+  static int bits[MAX_ORDER] = {0};
+  bits[0] = 1;
   int i;
   int m = n;
   int sum = 0;
-  
-  /* init: set 0...01 */
-  memset(bits, 0, sizeof(int) * MAX_ORDER);
-  bits[0] = 1;
 
   if (n > 0) {
     while (m--) {
@@ -36,7 +35,7 @@ void pe16(int n) {
 
       /* check overflow */
       if (bits[MAX_ORDER - 1] > 9999) {
-        fprintf(stderr, "overflow\n");
+        cerr << "overflow\n";
         return;
       }
     }
@@ -49,8 +48,8 @@ void pe16(int n) {
   }
 
   /* print for debug */
-  printf("2 ^ %d = ", n);
-  printf("%d", bits[i]);
+  cout << "2 ^ " << n << " = ";
+  cout << bits[i];
   do {
     sum += bits[i] % 10;
   } while (bits[i] /= 10);
@@ -63,25 +62,20 @@ void pe16(int n) {
       } while (bits[i] /= 10);
     }
   }
-  printf("\n");
-  
-  printf("sum of digits = %d\n", sum);
+  cout << endl;
+
+  cout << "sum of digits = " << sum << endl;
 }
 
 int pe16_main(void) {
-  int n;
-
-  while (1) {
-    puts("2^n: ");
-    if (scanf("%d", &n) != 1) {
-      scanf("%*s");
-      puts("Input Number.");
-    } else {
-      if (!n) {
-        break;
-      }
-      pe16(n);
+  for (;;) {
+    int n;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
     }
+    pe16(n);
   }
 
   return 0;

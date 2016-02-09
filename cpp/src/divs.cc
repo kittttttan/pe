@@ -1,4 +1,5 @@
 #include <divs.h>
+
 #include <cstddef>
 #include <cmath>
 
@@ -10,11 +11,9 @@ using namespace std;
  * @param[in]  n max length
  * @return length
  */
-void get_divs(vector<uint>* p, uint64 n)
+void get_divs(vector<uint32_t>* p, uint64_t n)
 {
-  size_t i, limit;
-
-  limit = static_cast<size_t>(sqrt(n));
+  uint32_t limit = static_cast<uint32_t>(sqrt(n));
   while ((n & 1) == 0) {
     p->push_back(2);
     n >>= 1;
@@ -23,7 +22,7 @@ void get_divs(vector<uint>* p, uint64 n)
     return;
   }
 
-  i = 3;
+  uint32_t i = 3;
   while (i <= limit) {
     if (n % i == 0) {
       p->push_back(i);
@@ -36,7 +35,7 @@ void get_divs(vector<uint>* p, uint64 n)
     }
   }
   if (n > 1) {
-    p->push_back(n);
+    p->push_back(static_cast<uint32_t>(n));
   }
 }
 
@@ -45,7 +44,7 @@ void get_divs(vector<uint>* p, uint64 n)
  * @param[in] n
  * @return 
  */
-uint cnt_divs(uint n)
+uint32_t cnt_divs(uint32_t n)
 {
   if (!n) {
     return 0;
@@ -57,11 +56,11 @@ uint cnt_divs(uint n)
     return 2;
   }
 
-  vector<uint> p;
+  vector<uint32_t> p;
   get_divs(&p, n);
   size_t l = p.size();
-  uint t = 0;
-  uint c = 1;
+  uint32_t t = 0;
+  uint32_t c = 1;
   for (size_t i = 0; i < l; ++i) {
     if (i + 1 < l && p[i] == p[i + 1]) {
       ++t;

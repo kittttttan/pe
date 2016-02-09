@@ -1,50 +1,46 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe20.h>
-#include <stdio.h>
-#include <string.h>
 
-enum { MAX_ORDER = 256 };
+#include <iostream>
 
-void pe20(int n) {
-  static int bits[MAX_ORDER];
-  int i;
-  int j;
-  int sum = 0;
-  
-  /* init: set 0...01 */
-  memset(bits, 0, sizeof(int) * MAX_ORDER);
+using namespace std;
+
+const size_t MAX_ORDER = 256;
+
+void pe20(uint32_t n) {
+  static uint32_t bits[MAX_ORDER] = {0};
   bits[0] = 1;
 
+  uint32_t sum = 0;
   if (n > 1) {
-    for (j = 2; j <= n; ++j) {
+    for (uint32_t j = 2; j <= n; ++j) {
       /* multiply */
-      for (i = 0; i < MAX_ORDER; ++i) {
+      for (uint32_t i = 0; i < MAX_ORDER; ++i) {
         bits[i] *= j;
       }
       
       /* ceil */
-      for (i = 0; i < MAX_ORDER - 1; ++i) {
+      for (uint32_t i = 0; i < MAX_ORDER - 1; ++i) {
         bits[i + 1] += bits[i] / 10000;
         bits[i] %= 10000;
       }
 
       /* check overflow */
       if (bits[MAX_ORDER - 1] > 9999) {
-        fprintf(stderr, "overflow\n");
+        cerr << "overflow" << endl;
         return;
       }
     }
   }
   
-  i = MAX_ORDER;
+  uint32_t i = MAX_ORDER;
   /* ignore following zeros */
   while (i--) {
     if (bits[i]) break;
   }
 
   /* print for debug */
-  printf("%d! = ", n);
-  printf("%d", bits[i]);
+  cout << n << "! = " << bits[i];
   do {
     sum += bits[i] % 10;
   } while (bits[i] /= 10);
@@ -57,25 +53,20 @@ void pe20(int n) {
       } while (bits[i] /= 10);
     }
   }
-  printf("\n");
+  cout << endl;
   
-  printf("sum of digits = %d\n", sum);
+  cout << "sum of digits = " << sum << endl;
 }
 
 int pe20_main(void) {
-  int n;
-
-  while (1) {
-    printf("n!: ");
-    if (scanf("%d", &n) != 1) {
-      scanf("%*s");
-      puts("Input Number.");
-    } else {
-      if (!n) {
-        break;
-      }
-      pe20(n);
+  for (;;) {
+    uint32_t n;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
     }
+    pe20(n);
   }
 
   return 0;

@@ -15,40 +15,39 @@ using namespace std;
  * @param[in]  l Length of the list
  * @return
  */
-int sieve(vector<int>& p, int l) {
-  int i, j, sq, limit, *s;
-  double times;
-
+uint32_t sieve(vector<uint32_t>& p, uint32_t l) {
   if (l < 1) {
     return 0;
   }
+
+  double times;
   if (l < 50) {
     times = 5.0;
   } else {
     times = log(l) + 2.0;
   }
-  limit = static_cast<int>(floor(l * times));
+  uint32_t limit = static_cast<int>(floor(l * times));
 
-  s = new int[limit + 1];
+  bool *s = new bool[limit + 1];
   if (!s) {
     cerr << "failed malloc: " << __FILE__ << ":" << __LINE__ << endl;
     return 0;
   }
 
-  sq = static_cast<int>(floor(sqrt(limit)));
-  s[0] = 0;
-  s[1] = 0;
-  for (i = 2; i < limit + 1; ++i) {
-    s[i] = 1;
+  uint32_t sq = static_cast<uint32_t>(floor(sqrt(limit)));
+  s[0] = false;
+  s[1] = false;
+  for (uint32_t i = 2; i < limit + 1; ++i) {
+    s[i] = true;
   }
-  for (i = 2; i < sq + 1; ++i) {
-    for (j = i * i; j < limit + 1; j += i) {
-      s[j] = 0;
+  for (uint32_t i = 2; i < sq + 1; ++i) {
+    for (uint32_t j = i * i; j < limit + 1; j += i) {
+      s[j] = false;
     }
   }
 
-  j = 0;
-  for (i = 0; j < l; ++i) {
+  uint32_t j = 0;
+  for (uint32_t i = 0; j < l; ++i) {
     if (s[i]) {
       p.push_back(i);
       ++j;
@@ -65,29 +64,27 @@ int sieve(vector<int>& p, int l) {
  * @param[in]  limit
  * @return length
  */
-int sieve_below(vector<int>& p, int limit) {
-  int i, j, sq, *s;
-
-  s = new int[limit + 1];
+uint32_t sieve_below(vector<uint32_t>& p, uint32_t limit) {
+  bool *s = new bool[limit + 1];
   if (!s) {
     cerr << "failed malloc: " << __FILE__ << ":" << __LINE__ << endl;
     return 0;
   }
 
-  sq = static_cast<int>(floor(sqrt(limit)));
-  s[0] = 0;
-  s[1] = 0;
-  for (i = 2; i < limit + 1; ++i) {
-    s[i] = 1;
+  uint32_t sq = static_cast<uint32_t>(floor(sqrt(limit)));
+  s[0] = false;
+  s[1] = false;
+  for (uint32_t i = 2; i < limit + 1; ++i) {
+    s[i] = true;
   }
-  for (i = 2; i < sq + 1; ++i) {
-    for (j = i * i; j < limit + 1; j += i) {
-      s[j] = 0;
+  for (uint32_t i = 2; i < sq + 1; ++i) {
+    for (uint32_t j = i * i; j < limit + 1; j += i) {
+      s[j] = false;
     }
   }
 
-  j = 0;
-  for (i = 0; i < limit + 1; ++i) {
+  uint32_t j = 0;
+  for (uint32_t i = 0; i < limit + 1; ++i) {
     if (s[i]) {
       p.push_back(i);
       ++j;
@@ -105,8 +102,8 @@ int sieve_below(vector<int>& p, int limit) {
  * @param[in] mod
  * @return [base]^[power] (mod [mod])
  */
-int mod_math_pow(int base, int power, int mod) {
-  int result = 1;
+uint32_t mod_math_pow(uint32_t base, uint32_t power, uint32_t mod) {
+  uint32_t result = 1;
 
   while (power > 0) {
     if (power & 1) {
@@ -125,36 +122,34 @@ int mod_math_pow(int base, int power, int mod) {
  * @param[in] i Repeat times of the test
  * @return 1 means prime
  */
-int mrpt(int n, int i) {
-  int a, d, t, y;
-
+bool mrpt(uint32_t n, uint32_t i) {
   if (n == 2) {
-    return 1;
+    return true;
   }
   
   assert(n <= 0xfffffff);
   if (n < 2 || (n & 1) == 0) {
-    return 0;
+    return false;
   }
 
-  d = n - 1;
-  srand(static_cast<unsigned int>(time(NULL)));
+  uint32_t d = n - 1;
+  srand(static_cast<uint32_t>(time(NULL)));
   while ((d & 1) == 0) {
     d >>= 1;
   }
 
   while (i--) {
-    a = rand() % (n - 1) + 1;
-    t = d;
-    y = mod_math_pow(a, t, n);
+    uint32_t a = rand() % (n - 1) + 1;
+    uint32_t t = d;
+    uint32_t y = mod_math_pow(a, t, n);
     while (t != n - 1 && y != 1 && y != n - 1) {
       y = y * y % n;
       t <<= 1;
     }
     if (y != n - 1 && (t & 1) == 0) {
-      return 0;
+      return false;
     }
   }
 
-  return 1;
+  return true;
 }

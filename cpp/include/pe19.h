@@ -1,6 +1,6 @@
 #pragma once
 
-int isLeapYear(int year);
+bool isLeapYear(int year);
 int daysOfMonth(int year, int month);
 void pe19(int n);
 int pe19_main(void);

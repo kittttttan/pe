@@ -1,8 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <pe22.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+
+#include <iostream>
+
+using namespace std;
 
 static const char DEFAULT_FILE_NAME[] = "pe22.txt";
 
@@ -11,25 +16,17 @@ static int compare(const void* a, const void* b) {
 }
 
 void pe22(const char* filepath) {
-  FILE* fp;
-  int c;
-  int worth = 0;
-  unsigned long score = 0;
-  char* cp;
-  char* text;
-  char** names;
-  size_t i, j;
-  size_t size = 0;
-  size_t name_count = 1;
-
   // file open
-  fp = fopen(filepath, "rb");
+  FILE *fp = fopen(filepath, "rb");
   if (!fp) {
-    fprintf(stderr, "failed to open %s\n", filepath);
+    cerr << "failed to open " << filepath << endl;
     return;
   }
   
   // count
+  int c;
+  size_t size = 0;
+  size_t name_count = 1;
   while ((c = getc(fp)) != EOF) {
     if (c == ',') {
       ++size;
@@ -38,14 +35,18 @@ void pe22(const char* filepath) {
       ++size;
     }
   }
-  //printf("%d %d\n", size, name_count);
+  // cout << size << " " << name_count << endl;
   
   // read names
-  text = (char*)malloc(size + 1);
-  if (!text) { fprintf(stderr, "error\n"); return; }
+  char *text = (char*)malloc(size + 1);
+  if (!text) {
+    cerr << "error" << endl;
+    fclose(fp);
+    return;
+  }
   
   fseek(fp, 0, SEEK_SET);
-  i = 0;
+  size_t i = 0;
   while ((c = getc(fp)) != EOF) {
     if ((c == ',') || ('A' <= c && c <= 'Z')) {
       text[i] = c;
@@ -56,14 +57,14 @@ void pe22(const char* filepath) {
   
   // file close
   if (ferror(fp)) {
-    fprintf(stderr, "file error.");
+    cerr << "file error." << endl;
     clearerr(fp);
   }
   fclose(fp);
   
   // string array
-  cp = text;
-  names = (char**)malloc(name_count * sizeof(char*));
+  char *cp = text;
+  char **names = (char**)calloc(sizeof(char*), name_count);
   for (i = 0; i < size; ++i) {
     if ((names[i] = strtok(cp, ",")) == NULL) {
       break;
@@ -75,18 +76,19 @@ void pe22(const char* filepath) {
   qsort(names, name_count, sizeof(const char *), compare);
   
   // calculate score
+  uint32_t score = 0;
   for (i = 0; i < name_count; ++i) {
-    j = 0;
-    worth = 0;
+    size_t j = 0;
+    int worth = 0;
     while ((c = names[i][j]) != '\0') {
       worth += c - 'A' + 1;
       ++j;
     }
     score += (i + 1) * worth;
-    //printf("%s %d\n", names[i], worth);
+    // cout << names[i] << " " << worth << endl;
   }
   
-  printf("%lu\n", score);
+  cout << score << endl;
   
   for (i = 0; i < name_count; ++i) {
     free(names[i]);

@@ -1,5 +1,6 @@
 #pragma once
 
-typedef unsigned long uint;
+#include <cstdint>
 
-uint pe5(uint n);
+uint32_t pe5(uint32_t n);
+int pe5_main();

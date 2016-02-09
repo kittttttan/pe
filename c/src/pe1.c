@@ -26,7 +26,7 @@ void pe1_loop(uint32_t n) {
     }
   }
 
-  printf("%lu below %lu\n", sum, n);
+  printf("%" PRIu32 " below %" PRIu32 "\n", sum, n);
 }
 
 int pe1_main(void) {

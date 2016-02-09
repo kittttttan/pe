@@ -3,14 +3,14 @@
 #include <cstdlib>
 #include <iostream>
 
-static inline uint SUM_X2(unsigned long n)
+static inline uint32_t SUM_X2(uint32_t n)
 {
   return n * (n + 1);
 }
 
-uint pe1(uint n)
+uint32_t pe1(uint32_t n)
 {
-  uint sum = 0;
+  uint32_t sum = 0;
 
   if (n > 2) {
     sum = (3 * SUM_X2(n / 3) + 5 * SUM_X2(n / 5) - 15 * SUM_X2(n / 15)) >> 1;
@@ -19,11 +19,11 @@ uint pe1(uint n)
   return sum;
 }
 
-uint pe1_loop(uint n)
+uint32_t pe1_loop(uint32_t n)
 {
-  uint i, sum = 0;
+  uint32_t sum = 0;
   if (n > 2) {
-    for (i = 3; i < n + 1; ++i) {
+    for (uint32_t i = 3; i < n + 1; ++i) {
       if (i % 3 == 0 || i % 5 == 0) {
         sum += i;
       }
@@ -33,17 +33,19 @@ uint pe1_loop(uint n)
   return sum;
 }
 
-int main(int argc, char** argv)
+int pe1_main()
 {
   using namespace std;
-  
-  uint n = 1000;
 
-  if (argc > 1) {
-    n = atoi(argv[1]);
+  for (;;) {
+    uint32_t n = 1000;
+    cout << "below: ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe1(n) << endl;
   }
-  
-  cout << pe1(n) << endl;
 
   return 0;
 }

@@ -1,3 +1,5 @@
 #pragma once
 
-int spd(int n);
+#include <cstdint>
+
+uint32_t spd(uint32_t n);

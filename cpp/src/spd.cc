@@ -7,13 +7,15 @@
  * @param[in] n
  * @return
  */
-int spd(int n)
+uint32_t spd(uint32_t n)
 {
-  int sum = 1;  
-  if (n < 2) return sum;
+  uint32_t sum = 1;
+  if (n < 2) {
+    return sum;
+  }
   
-  int isq = static_cast<int>(floor(sqrt(n)));
-  for (int i = 2; i < isq; ++i) {
+  uint32_t isq = static_cast<uint32_t>(floor(sqrt(n)));
+  for (uint32_t i = 2; i < isq; ++i) {
     if (n % i == 0) {
       sum += i + n / i;
     }

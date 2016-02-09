@@ -2,13 +2,9 @@
 
 #include <iostream>
 
-using namespace std;
-
-uint count(uint n)
+uint32_t count(uint32_t n)
 {
-  uint c;
-
-  c = 1;
+  uint32_t c = 1;
   while (n > 1) {
     if (n & 1) {
       n = 3 * n + 1;
@@ -21,13 +17,12 @@ uint count(uint n)
   return c;
 }
 
-void pe14(uint& index, uint& cnt, uint begin, uint limit)
+void pe14(uint32_t& index, uint32_t& cnt, uint32_t begin, uint32_t limit)
 {
-  uint m, mi, c;
-
-  m = mi = 0;
+  uint32_t m = 0;
+  uint32_t mi = 0;
   if ((begin & 1) == 0) {
-    c = count(begin);
+    uint32_t c = count(begin);
     if (m < c) {
       m = c;
       mi = begin;
@@ -35,8 +30,8 @@ void pe14(uint& index, uint& cnt, uint begin, uint limit)
     ++begin;
   }
 
-  for (uint i = begin; i < limit; i += 2) {
-    c = count(i);
+  for (uint32_t i = begin; i < limit; i += 2) {
+    uint32_t c = count(i);
     if (m < c) {
       m = c;
       mi = i;
@@ -47,10 +42,11 @@ void pe14(uint& index, uint& cnt, uint begin, uint limit)
   cnt = m;
 }
 
-int main(int argc, char** argv)
+int pe14_main()
 {
-  uint index, cnt;
-  
+  using namespace std;
+
+  uint32_t index, cnt;
   pe14(index, cnt, 500001, 1000000);
   cout << index << " produces " << cnt << " Collatz chain" << endl;
 

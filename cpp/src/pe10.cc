@@ -6,26 +6,26 @@
 
 using namespace std;
 
-uint pe10(uint n)
+uint32_t pe10(uint32_t n)
 {
   bool* s = new bool[n];
   s[0] = false;
   s[1] = false;
-  for (uint i = 2; i <= n; ++i) {
+  for (uint32_t i = 2; i <= n; ++i) {
     s[i] = true;
   }
 
-  uint sq = static_cast<uint>(sqrt(n));
-  for (uint i = 2; i < sq + 1; i++) {
+  uint32_t sq = static_cast<uint32_t>(sqrt(n));
+  for (uint32_t i = 2; i < sq + 1; i++) {
     if (s[i]) {
-      for (uint j = i * i; j <= n; j += i) {
+      for (uint32_t j = i * i; j <= n; j += i) {
         s[j] = false;
       }
     }
   }
 
-  uint sum = 0;
-  for (uint i = 0; i <= n; ++i) {
+  uint32_t sum = 0;
+  for (uint32_t i = 0; i <= n; ++i) {
     if (s[i]) {
       sum += i;
     }
@@ -36,15 +36,17 @@ uint pe10(uint n)
   return sum;
 }
 
-int main(int argc, char** argv)
+int pe10_main()
 {
-  uint n = 2000000;
-
-  if (argc > 1) {
-    n = strtoul(argv[1], nullptr, 0);
+  for (;;) {
+    uint32_t n = 2000000;
+    cout << "> ";
+    cin >> n;
+    if (n < 1) {
+      break;
+    }
+    cout << pe10(n) << endl;
   }
-
-  cout << pe10(n) << endl;
 
   return 0;
 }

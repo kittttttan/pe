@@ -1,20 +1,20 @@
 TARGET = pe
 CC = gcc
-CFLAGS = -g -Wall -Wextra -O2
+CFLAGS = -fPIC -g -Wall -Wextra -O2 -std=c11
 SRCDIR = src/
 INCLUDES = -I./include/
 OBJDIR = obj/
-OUTDIR = build/
+OUTDIR = lib/
 SOURCES = $(wildcard $(SRCDIR)*.c)
 OBJS = $(SOURCES:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
 all: $(TARGET)
 
 clean:
-	-$(RM) $(OUTDIR)$(TARGET) $(OBJS)
+	-$(RM) $(OBJS)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $(OUTDIR)$@ $(OBJS)
+	$(CC) -shared -Wl,-soname,lib$@.so.1 -o $(OUTDIR)lib$@.so.1.0.0 $(OBJS) -lm
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c -o $@ $<
