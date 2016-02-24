@@ -15,7 +15,7 @@ def pe1a(limit=1000):
     >>> pe1a()
     234168
     """
-    return sum([x for x in range(1, limit + 1) if not x % 3 or not x % 5])
+    return sum(x for x in range(1, limit + 1) if not x % 3 or not x % 5)
 
 def pe1(n=1000):
     """
