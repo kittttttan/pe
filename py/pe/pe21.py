@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Evaluate the sum of all amicable pairs under 10000.
 """

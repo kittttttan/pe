@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Investigate the expansion of the continued fraction
 for the square root of two.

@@ -1,14 +1,15 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Solve project euler 1
 
 Add all the natural numbers below one thousand
 that are multiples of 3 or 5.
 """
-from __future__ import division, print_function
-#unicode_literals, absolute_import
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 def pe1a(limit=1000):
+    # type: (int) -> int
     """
     iter
 
@@ -18,6 +19,7 @@ def pe1a(limit=1000):
     return sum(x for x in range(1, limit + 1) if not x % 3 or not x % 5)
 
 def pe1(n=1000):
+    # type: (int) -> int
     """
     sum(multiples of 3) + sum(multiples of 5) - sum(multiples of 15)
 

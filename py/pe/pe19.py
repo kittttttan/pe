@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 How many Sundays fell on the first of the month
 during the twentieth century?

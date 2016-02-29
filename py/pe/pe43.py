@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the sum of all pandigital numbers
 with an unusual sub-string divisibility property.

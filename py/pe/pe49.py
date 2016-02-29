@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find arithmetic sequences, made of prime terms,
 whose four digits are permutations of each other.

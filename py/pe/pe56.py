@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Considering natural numbers of the form, ab,
 finding the maximum digital sum.

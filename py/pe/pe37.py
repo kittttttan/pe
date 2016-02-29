@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the sum of all eleven primes
 that are both truncatable from left to right and right to left.

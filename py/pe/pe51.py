@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the smallest prime which, by changing the same part of the number,
 can form eight different primes.

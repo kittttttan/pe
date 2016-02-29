@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Finding the nth digit of the fractional part of the irrational number.
 """

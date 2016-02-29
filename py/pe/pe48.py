@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the last ten digits of 1**1 + 2**2 + ... + 1000**1000.
 """

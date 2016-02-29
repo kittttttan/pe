@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Which prime, below one-million,
 can be written as the sum of the most consecutive primes?

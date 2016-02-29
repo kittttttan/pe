@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Discover the largest product of five consecutive digits
 in the 1000-digit number.

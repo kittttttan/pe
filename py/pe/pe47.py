@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the first four consecutive integers
 to have four distinct primes factors.

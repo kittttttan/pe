@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the only Pythagorean triplet, {a, b, c}, for which a + b + c = 1000.
 """

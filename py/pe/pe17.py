@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 How many letters would be needed
 to write all the numbers in words from 1 to 1000?

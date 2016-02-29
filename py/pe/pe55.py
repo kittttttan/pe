@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 How many Lychrel numbers are there below ten-thousand?
 """

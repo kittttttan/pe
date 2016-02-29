@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 How many different ways can L2 be made using any number of coins?
 """
@@ -6,7 +7,7 @@ How many different ways can L2 be made using any number of coins?
 def pe31(target=200):
     """
     >>> pe31()
-    
+    73682
     """
     coins = [1, 2, 5, 10, 20, 50, 100, 200]
     ways = [1] + [0] * target

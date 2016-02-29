@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 After 40755, what is the next triangle number
 that is also pentagonal and hexagonal?

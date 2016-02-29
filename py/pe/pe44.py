@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the smallest pair of pentagonal numbers
 whose sum and difference is pentagonal.

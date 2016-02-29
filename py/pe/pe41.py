@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 What is the largest n-digit pandigital prime that exists?
 """

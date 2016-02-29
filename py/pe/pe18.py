@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the maximum sum travelling from the top of the triangle to the base.
 """

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 How many values of C(n,r), for 1 <= n <= 100, exceed one-million?
 """

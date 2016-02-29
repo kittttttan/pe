@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 What is the sum of both diagonals in a 1001 by 1001 spiral?
 21 22 23 24 25 ..

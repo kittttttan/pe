@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Discover all the fractions with an unorthodox cancelling method.
 """

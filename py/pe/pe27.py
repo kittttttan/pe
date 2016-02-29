@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find a quadratic formula that produces the maximum number of primes
 for consecutive values of n.

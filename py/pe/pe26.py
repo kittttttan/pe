@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Find the value of d < 1000
 for which 1/d contains the longest recurring cycle.
