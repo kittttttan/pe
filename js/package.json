@@ -1,0 +1,35 @@
+{
+  "name": "pe",
+  "version": "0.0.1",
+  "description": "Solve project euler.",
+  "license": "MIT",
+  "author": {
+    "name": "kittttttan",
+    "url": "https://kittttttan.info/"
+  },
+  "homepage": "https://github.com/kittttttan/pe",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kittttttan/pe.git"
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json src/ts/*.ts> lint.log",
+    "start": "npm run lite",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.8",
+    "systemjs": "0.19.22",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.2",
+    "zone.js": "0.5.15"
+  },
+  "devDependencies": {
+    "lite-server": "^2.1.0",
+    "typings":"^0.6.8"
+  }
+}
