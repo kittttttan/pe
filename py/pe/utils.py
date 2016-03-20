@@ -2,118 +2,31 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import division, unicode_literals
-from math import log
-
-def get_prime(n):
-    """
-    Get nth prime.
-
-    >>> get_prime(1)
-    2
-
-    >>> get_prime(10)
-    29
-    """
-    if n < 1:
-        return 0
-    if n < 50:
-        times = 5
-    else:
-        times = log(n) + 2
-    n0 = n
-    n = int(n * times)
-
-    s = [True] * (n + 1)
-    s[0], s[1] = False, False
-    sq = int(n**0.5)
-    for i in range(2, sq + 1):
-        if s[i]:
-            m = n//i - i
-            s[i * i : n + 1 : i] = [False] * (m + 1)
-    i, j = 0, 0
-    while 1:
-        if s[j]:
-            i += 1
-            if i >= n0:
-                break
-        j += 1
-    return j
-
-def sieve(n):
-    """
-    Get primes below n.
-
-    >>> sieve(10)
-    [2, 3, 5, 7]
-    """
-    if n < 2:
-        return []
-    s = [True] * (n + 1)
-    s[0], s[1] = False, False
-    sq = int(n**0.5)
-    for i in range(2, sq + 1):
-        if s[i]:
-            m = n//i - i
-            s[i * i : n+1 : i] = [False] * (m+1)
-    return [i for i in range(n+1) if s[i]]
-
-primes = set(sieve(100000))
-primes2 = sieve(2766)
-
-def is_prime(n):
-    """
-    Fast checking below n.
-
-    >>> is_prime(997)
-    True
-
-    >>> is_prime(1001)
-    False
-    """
-    return n in primes
-
-def is_prime2(n):
-    """
-    Slow checking below n * n.
-
-    >>> is_prime2(97)
-    True
-    """
-    if n < 2:
-        return False
-    for p in primes2:
-        if p * p > n:
-            break
-        if not n % p:
-            return False
-    return True
 
 def get_divisors(n):
     """
     Get divisors.
 
-    >>> get_divisors(180)
+    >>> [i for i in get_divisors(180)]
     [2, 2, 3, 3, 5]
     """
-    p = []
     limit = int(n**0.5)
     while not n & 1:
-        p.append(2)
+        yield 2
         n >>= 1
     if n == 1:
-        return p
+        return
     i = 3
     while i <= limit:
         if not n % i:
-            p.append(i)
+            yield i
             n //= i
             if n < i:
                 break
         else:
             i += 2
     if n > 1:
-        p.append(n)
-    return p
+        yield n
 
 def count_divisors(n):
     """
@@ -122,7 +35,7 @@ def count_divisors(n):
     >>> count_divisors(18) # 18 can be divided by 1,2,3,6,9,18
     6
     """
-    p = get_divisors(n)
+    p = [i for i in get_divisors(n)]
     pl = len(p)
     if pl == 1:
         return 2
@@ -258,6 +171,30 @@ def list_num(l):
     for n in l:
         s = s * 10 + n
     return s
+
+import sys
+if sys.version_info < (3, 0, 0):
+    def triangle_numbers():
+        """
+        >>> import itertools
+        >>> [i for i in itertools.islice(triangle_numbers(), 5)]
+        [1, 3, 6, 10, 15]
+        """
+        t = 1
+        i = 2
+        while True:
+            yield t
+            t += i
+            i += 1
+else:
+    import itertools
+    def triangle_numbers():
+        """
+        >>> import itertools
+        >>> [i for i in itertools.islice(triangle_numbers(), 5)]
+        [1, 3, 6, 10, 15]
+        """
+        return itertools.accumulate(itertools.count(1))
 
 if __name__ == "__main__":
     import doctest

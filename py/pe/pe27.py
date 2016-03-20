@@ -9,7 +9,7 @@ f(0) >= 2  =>  b >= 2
 f(1) >= 2  =>  b >= 1 - a
 """
 
-from utils import is_prime
+from primes import Primes
 
 def pe27():
     """
@@ -17,12 +17,13 @@ def pe27():
     (-59231, (-61, 971, 71))
     """
     m = (0, 0, 0)
+    primes = Primes(15000)
     for a in range(-999, 1000):
         for b in range(max(2, 1 - a), 1000):
             n, cnt = 0, 0
             while 1:
                 p = n * (n + a) + b
-                if is_prime(p):
+                if primes.is_prime(p):
                     cnt += 1
                 else:
                     break

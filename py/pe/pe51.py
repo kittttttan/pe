@@ -5,7 +5,7 @@ Find the smallest prime which, by changing the same part of the number,
 can form eight different primes.
 """
 
-from utils import sieve
+from primes import sieve
 
 primes = sieve(1000000)
 primeset = set(primes)

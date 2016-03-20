@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from utils import count_divisors
+from utils import count_divisors, triangle_numbers
 
 def pe12(sub=500):
     """
@@ -11,15 +11,11 @@ def pe12(sub=500):
     >>> pe12()
     76576500
     """
-    t = 1
-    i = 2
-    while 1:
+    for t in triangle_numbers():
         c = count_divisors(t)
         if c >= sub:
-            break
-        t += i
-        i += 1
-    return(t)
+            return(t)
+    return -1
 
 if __name__ == "__main__":
     import doctest

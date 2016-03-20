@@ -4,14 +4,16 @@
 Find the 10001st prime.
 """
 
-from utils import get_prime
+from primes import Primes
+
+primes = Primes()
 
 def pe7(n=10001):
     """
     >>> pe7()
     104743
     """
-    return(get_prime(n))
+    return(primes[n - 1])
 
 if __name__ == "__main__":
     import doctest

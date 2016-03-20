@@ -5,7 +5,7 @@ Find the sum of all eleven primes
 that are both truncatable from left to right and right to left.
 """
 
-from utils import sieve
+from primes import sieve
 
 def pe37():
     """

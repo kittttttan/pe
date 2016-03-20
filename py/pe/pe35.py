@@ -4,7 +4,7 @@
 How many circular primes are there below one million?
 """
 
-from utils import sieve
+from primes import sieve
 
 def pe35(limit=1000000):
     """

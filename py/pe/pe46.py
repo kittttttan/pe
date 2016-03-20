@@ -5,16 +5,18 @@ What is the smallest odd composite
 that cannot be written as the sum of a prime and twice a square?
 """
 
-from utils import is_prime
+from primes import Primes
 
 _SQ = [i * i << 1 for i in range(100)]
+primes = Primes()
 
 def is_goldbach(n):
     res = False
     for i in range(100):
         t = n - _SQ[i]
-        if t < 2: break
-        if is_prime(t):
+        if t < 2:
+            break
+        if primes.is_prime(t):
             res = True
             break
     return res

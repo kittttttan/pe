@@ -7,21 +7,22 @@ whose four digits are permutations of each other.
 
 from itertools import permutations
 
-from utils import is_prime
+from primes import Primes
 
 def pe49(limit=10000):
     """
     >>> pe49()
     (2969, 6299, 9629)
     """
+    pr = Primes()
     for num in range(1111, limit):
         sn = str(num)
         if sn.find('0') >= 0: continue
-        if is_prime(num):
+        if pr.is_prime(num):
             pp = {num : 1}
             for p in permutations(list(sn)):
                 n = int(''.join(p))
-                if is_prime(n):
+                if pr.is_prime(n):
                     pp[n] = 1
             primes = sorted(pp.keys())
             pl = len(primes)

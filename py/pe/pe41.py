@@ -6,16 +6,18 @@ What is the largest n-digit pandigital prime that exists?
 
 from itertools import permutations
 
-from utils import is_prime2, list_num
+from primes import Primes
+from utils import list_num
 
 def pe41():
     """
     >>> pe41()
     7652413
     """
+    primes = Primes(1000000)
     for perm in permutations(range(7, 0, -1)):
         n = list_num(perm)
-        if is_prime2(n):
+        if primes.is_prime(n):
             return n
     return -1
 

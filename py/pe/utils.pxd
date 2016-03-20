@@ -1,16 +1,5 @@
 cimport cython
 
-@cython.locals(times = cython.double, n0 = cython.long, sq = cython.long, s = list, m = cython.long, i = cython.long, j = cython.long)
-cdef long get_prime(long n)
-
-@cython.locals(sq = cython.long, m = cython.long, i = cython.long)
-cdef list sieve(long n)
-
-cdef bint is_prime(long n)
-
-@cython.locals(p = cython.long)
-cdef bint is_prime2(long n)
-
 @cython.locals(p = cython.long, limit = cython.long, i = cython.long)
 cdef list get_divisors(long n)
 

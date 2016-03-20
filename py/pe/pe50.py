@@ -5,7 +5,7 @@ Which prime, below one-million,
 can be written as the sum of the most consecutive primes?
 """
 
-from utils import sieve
+from primes import sieve
 
 def pe50(below=1000000):
     """
@@ -20,7 +20,8 @@ def pe50(below=1000000):
         t, s, l = 0, 0, 0
         for i in range(j, pl):
             s += primes[i]
-            if s >= below: break
+            if s >= below:
+                break
             if s in ps:
                 t, l = s, i - j
         if l > ml:
