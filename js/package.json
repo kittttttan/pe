@@ -1,6 +1,6 @@
 {
   "name": "pe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Solve project euler.",
   "license": "MIT",
   "author": {
@@ -12,24 +12,31 @@
     "type": "git",
     "url": "git://github.com/kittttttan/pe.git"
   },
+  "private": true,
+  "files": [
+    "README.md",
+    "package.json",
+    "index.js",
+    "index.map",
+    "index.d.ts",
+    "src/**/*.js",
+    "src/**/*.map",
+    "src/**/*.d.ts"
+  ],
   "scripts": {
-    "lint": "tslint -c tslint.json src/ts/*.ts> lint.log",
-    "start": "npm run lite",
-    "lite": "lite-server",
-    "typings": "typings",
-    "postinstall": "typings install"
-  },
-  "dependencies": {
-    "angular2": "2.0.0-beta.8",
-    "systemjs": "0.19.22",
-    "es6-promise": "^3.0.2",
-    "es6-shim": "^0.33.3",
-    "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.5.15"
+    "doc": "typedoc src/",
+    "clean": "rm -f src/*.js src/*.map spec/*.js spec/*.map index.js index.js.map",
+    "lint": "tslint -c tslint.json src/*.ts> lint.log",
+    "pretest": "tsc",
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js",
+    "posttest": "cd coverage && remap-istanbul -i coverage.json -o html-report -t html"
   },
   "devDependencies": {
-    "lite-server": "^2.1.0",
-    "typings":"^0.6.8"
+    "@ktn/benchmark": "../../ktn-js/benchmark",
+    "@types/jasmine": "",
+    "jasmine": "",
+    "istanbul": "",
+    "remap-istanbul": "",
+    "typescript": ""
   }
 }

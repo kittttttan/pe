@@ -1,17 +1,37 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "system",
-    "moduleResolution": "node",
-    "sourceMap": true,
+    "target": "es6",
+    "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "declaration": true,
+    "allowJs": false,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "pretty": true,
     "removeComments": false,
-    "noImplicitAny": false
+    "strictNullChecks": true,
+    "stripInternal": true,
+    "rootDir": ".",
+    "listFiles": false,
+    "sourceMap": true,
+    "inlineSources": true
   },
   "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+    "doc",
+    "coverage",
+    "node_modules"
+  ],
+  "include": [
+    "index.ts",
+    "spec/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "typedocOptions": {
+    "out": "doc",
+    "mode": "file",
+    "includeDeclarations": true,
+    "hideGenerator": false
+  }
 }

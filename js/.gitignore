@@ -1,4 +1,6 @@
 node_modules/
-typings/
-app/*.js
-app/*.map
+coverage/
+
+*.js
+*.map
+*.d.ts
