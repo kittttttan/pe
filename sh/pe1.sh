@@ -1,5 +1,3 @@
-#!/bin/sh
-
 if [ "$1" == "-h" ]
 then
   echo Usage: ./$0 [option] [number]
