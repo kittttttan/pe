@@ -1,7 +1,33 @@
 {
+    "name": "kittttttan/pe",
+    "type": "project",
+    "require": {
+        "php": ">=7.1"
+    },
     "require-dev": {
-        "phpunit/phpunit": "*",
-        "phpmd/phpmd" : "*",
-        "squizlabs/php_codesniffer" : "*"
+        "phpunit/phpunit": "^9.5",
+        "phpstan/phpstan": "^0.12.94"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Pe\\": "pe/"
+        },
+        "files": [
+            "pe/utils.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "phpstan": "phpstan analyse -c phpstan.neon --memory-limit=200M",
+        "test": "vendor/bin/phpunit tests/"
     }
 }

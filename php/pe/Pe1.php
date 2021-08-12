@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Solve project euler 1
  *
@@ -6,16 +7,19 @@
  * that are multiples of 3 or 5.
  */
 
-$ROOT = dirname(__FILE__);
-require_once $ROOT.'/iter.php';
+namespace Pe;
 
 class Pe1
 {
-    public static function sum(int $limit = 1000)
+    /**
+     * @param int $limit
+     * @return int
+     */
+    public static function with_loop(int $limit): int
     {
-        return sum_iterator(
-            ite_filter(
-                xrange(1, $limit + 1),
+        return array_sum(
+            array_filter(
+                range(1, $limit),
                 function ($n) {
                     return $n % 3 == 0 || $n % 5 == 0;
                 }
@@ -23,23 +27,21 @@ class Pe1
         );
     }
 
-    public static function calc(int $n = 1000)
+    /**
+     * @param int $n
+     * @return int
+     */
+    public static function no_loop(int $n): int
     {
         $s = 0;
 
         if ($n > 2) {
-            $n3 = floor($n / 3);
-            $n5 = floor($n / 5);
-            $n15 = floor($n / 15);
+            $n3 = intdiv($n, 3);
+            $n5 = intdiv($n, 5);
+            $n15 = intdiv($n, 15);
             $s = (3 * $n3 * ($n3 + 1) + 5 * $n5 * ($n5 + 1) - 15 * $n15 * ($n15 + 1)) >> 1;
         }
 
         return $s;
     }
 }
-
-/*
-echo Pe1::sum();
-echo "\n";
-echo Pe1::calc();
-*/

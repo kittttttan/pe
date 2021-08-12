@@ -7,14 +7,21 @@
  * find the sum of the even-valued terms.
  */
 
+namespace Pe;
+
 class Pe2
 {
-    public static function calc(int $limit = 4000000)
+    /**
+     * @param int $limit
+     * @return int
+     */
+    public static function calc(int $limit): int
     {
-        list($a, $b, $s) = array(1, 2, 2);
+        [$a, $b, $s] = [1, 2, 2];
+
         while ($b <= $limit) {
-            list($a, $b) = array($b, $a + $b);
-            if (($b & 1) == 0) {
+            [$a, $b] = [$b, $a + $b];
+            if (($b & 1) === 0) {
                 $s += $b;
             }
         }

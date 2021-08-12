@@ -1,4 +1,4 @@
 vendor/
 
-phpmd.html
-composer.lock
+*.cache
+*.lock

@@ -5,12 +5,15 @@
  * Find the largest prime factor of a composite number.
  */
 
-$ROOT = dirname(__FILE__);
-require_once $ROOT.'/utils.php';
+namespace Pe;
 
 class Pe3
 {
-    public static function calc(int $n = 600851475143)
+    /**
+     * @param int $n
+     * @return int[]
+     */
+    public static function calc(int $n): array
     {
         return get_divisors($n);
     }
