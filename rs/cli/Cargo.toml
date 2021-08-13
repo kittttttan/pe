@@ -1,0 +1,7 @@
+[package]
+name = "pe-cli"
+version = "0.0.1"
+authors = ["kittttttan"]
+
+[dependencies.pe]
+path = "../pe"
