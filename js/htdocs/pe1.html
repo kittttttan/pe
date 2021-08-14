@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pe1</title>
+</head>
+<body>
+    <h1>Solve Project Euler</h1>
+    <nav>
+        <a href="./">HOME</a>
+    </nav>
+    <h2>Problem 1</h2>
+    <div>
+        <input type="number" id="n" value="1000" min="0">
+    </div>
+    <script src="js/pe.js"></script>
+    <script>
+window.addEventListener('load', () => {
+    const $n = document.getElementById('n');
+
+    function solve(n) {
+        console.log(`n = ${n}`);
+        console.time();
+        const a = Pe.Pe1.solve(n);
+        console.timeEnd();
+        console.log(`A. ${a}`);
+    }
+
+    $n.addEventListener('change', (event) => {
+        const n = +event.target.value;
+        solve(n);
+    });
+
+    const n = +$n.value;
+    solve(n);
+}, false);
+    </script>
+</body>
+</html>

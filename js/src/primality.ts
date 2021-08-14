@@ -21,8 +21,8 @@ export class Primality {
   }
 
   private static isPrime(n: number): boolean {
-    let sqrtn: number = Math.floor(Math.sqrt(n));
-    for (let p of this.primes) {
+    const sqrtn = Math.floor(Math.sqrt(n));
+    for (const p of this.primes) {
       if (p > sqrtn) {
         return true;
       }
@@ -42,7 +42,7 @@ export class Primality {
       return p;
     }
     n = Math.abs(n);
-    let pIndex: number = 0;
+    let pIndex = 0;
     while (n > 1) {
       while (n % this.get(pIndex) === 0) {
         p.push(this.get(pIndex));
